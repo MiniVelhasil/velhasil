@@ -11,8 +11,11 @@ Projemizin amacı; yazılı metinlerin Türkçe dil bilgisi kuralarına uygun ol
 velhasil_ = velhasil.Velhasil(text)
 
 #Gönderilen metinle ilgili istatistik bilgisi döndürür
+
 print(velhasil_.kelimesayisi)
+
 print(velhasil_.paragrafSayisi)
+
 print(velhasil_.cumleSayisi)
 
 
