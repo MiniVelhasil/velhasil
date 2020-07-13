@@ -22,7 +22,7 @@ def main():
     print(velhasil_.yazimKontrolu(velhasil_.cumleler[0]))
     #Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
     print(velhasil_.yazimKontrolu(velhasil_.cumleler[1]))
-    
+
     #Metindeki ilk cümlenin ilk kelimesin ile ilgili yazım önerileri sunar
     print(velhasil_.kelimeOneri(velhasil_.cumleler[0].split(" ")[0]))
 
