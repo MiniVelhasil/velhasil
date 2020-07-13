@@ -94,13 +94,15 @@ class Velhasil():
             if  baglac  in text:
                 index = text.index(baglac)
 
-                oncekiKelime = self.noktalamaTemizleyicisi(text[index-1])
+                oncekiKelime = self.noktalamaTemizleyicisi(text[index-1]).lower()
                 for line in self.searchfile:
-                    if len(oncekiKelime)>4:
-                        if oncekiKelime.lower() in line.split(" "):
-                            return True
-            else:
-                return False
+                    #print(re.search(r'\b' + oncekiKelime.lower() + '\b', line.split(" ")))
+                    print(str(line.split(" ")[1]))
+                    print(oncekiKelime)
+                    if re.search(r'\b' + oncekiKelime + r'\b', str(line.split(" ")[1])):
+                        return True
+                    else:
+                        return False
             
             
     #Yazım kontrolü yapan metodlarımız
