@@ -11,7 +11,6 @@ def main():
     print(velhasil_.kelimesayisi)
     print(velhasil_.paragrafSayisi)
     print(velhasil_.cumleSayisi)
-    
 
     #Cümlenin bölünüp bölünmeyeceğini önerisini "true" veya "false" olarak bildirir
     print(velhasil_.cumleBolucu(velhasil_.cumleler[0]))
@@ -21,6 +20,8 @@ def main():
 
     #Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
     print(velhasil_.yazimKontrolu(velhasil_.cumleler[0]))
+    #Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
+    print(velhasil_.yazimKontrolu(velhasil_.cumleler[1]))
     
     #Metindeki ilk cümlenin ilk kelimesin ile ilgili yazım önerileri sunar
     print(velhasil_.kelimeOneri(velhasil_.cumleler[0].split(" ")[0]))

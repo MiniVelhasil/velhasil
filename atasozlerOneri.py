@@ -4,6 +4,8 @@
     #stopwords temizlenecek
     #kökleri bulanacak
 #ATASÖZÜ ÖNERİ SİSTEMİ
+
+import velhasil
 class AtasozleriOneri():
 
     def atasozleriListesi(self):
@@ -19,6 +21,8 @@ class AtasozleriOneri():
     
     def paragrafKarsilastir(self,text):
         i = 0
+
+
         for atasoz in self.atasozuListesi: 
             sonuc = list(set(text) & set(atasoz))
             #print(atasoz)
@@ -28,6 +32,7 @@ class AtasozleriOneri():
                 print("Atasözünün anlamı : ", self.atasozuAnlami[i])
             i+=1
     def __init__(self,):
+
         self.atasozu =[]
         self.atasozuAnlami=[]
         self.atasozuListesi  =[]

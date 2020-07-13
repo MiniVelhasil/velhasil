@@ -21,6 +21,20 @@ class Velhasil():
     fsm = FsmMorphologicalAnalyzer("data/turkish_dictionary.txt", "data/turkish_misspellings.txt",
                   "data/turkish_finite_state_machine.xml")
     nGram = NGram("data/ngram.txt")
+
+    def __init__(self, text):
+
+        paragraflar = self.paragrafAyir(text)
+
+        self.kelimeSayici(text)
+        self.searchfile = open("data/VERB_TS_Corpus_Frequency_List.txt", "r", encoding="utf8")
+        self.simpleSpellChecker = SimpleSpellChecker(self.fsm)
+        self.nGram.calculateNGramProbabilitiesSimple(NoSmoothing())
+        self.nGramSpellChecker = NGramSpellChecker(self.fsm, self.nGram)
+        self.simpleSpellChecker = SimpleSpellChecker(self.fsm)
+        self.cumleBulucu(paragraflar)
+        # self.cumleBolucu(text)
+
     def zamanHesapla(fonk):
         def icFonk(*arg, **kwargs):
             begin= time.time()
@@ -43,7 +57,7 @@ class Velhasil():
     
     
     # #Metindeki cümleleri ayırmak için kullandığımız fonksiyonumuz
-    @zamanHesapla
+
     def cumleBulucu(self, paragraflar):
         sent2=[]
         for paraf in paragraflar:
@@ -72,16 +86,16 @@ class Velhasil():
 
     
     # #Uzun cümlelerin bölünmeye uygun olup olmadığını anlamak için kullandığımız fonksiyonumuz
-    @zamanHesapla
+    #@zamanHesapla
     def cumleBolucu(self, text):
         text =text.split(" ")
         for baglac in listeler.baglaclar:
             
             if  baglac  in text:
                 index = text.index(baglac)
-                searchfile = open("data/VERB_TS_Corpus_Frequency_List.txt", "r", encoding="utf8")
+
                 oncekiKelime = self.noktalamaTemizleyicisi(text[index-1])
-                for line in searchfile:
+                for line in self.searchfile:
                     if len(oncekiKelime)>4:
                         if oncekiKelime.lower() in line.split(" "):
                             return True
@@ -90,35 +104,26 @@ class Velhasil():
             
             
     #Yazım kontrolü yapan metodlarımız
-
     def yazimKontrolu(self, cumle):
-        simpleSpellChecker = SimpleSpellChecker(self.fsm)
+        #simpleSpellChecker = SimpleSpellChecker(self.fsm)
 
-        return (simpleSpellChecker.spellCheck(Sentence(cumle)).toString())
+        return (self.simpleSpellChecker.spellCheck(Sentence(cumle)).toString())
 
 
     def NGramYazimKontrolu(self, cumle):
-        self.nGram.calculateNGramProbabilitiesSimple(NoSmoothing())
-        nGramSpellChecker = NGramSpellChecker(self.fsm, self.nGram)
 
-        return (nGramSpellChecker.spellCheck(Sentence(cumle)).toString())
+
+        return (self.nGramSpellChecker.spellCheck(Sentence(cumle)).toString())
 
     #Yazım yanlışı yapılmış kelime için kelime önerileri sunar
 
     def kelimeOneri(self, kelime):
-        simpleSpellChecker = SimpleSpellChecker(self.fsm)
 
-        return (simpleSpellChecker.candidateList(Word(kelime)))
+
+        return (self.simpleSpellChecker.candidateList(Word(kelime)))
 
         
-    def __init__(self,text):
-        
-        paragraflar = self.paragrafAyir(text)
-        
-        self.kelimeSayici(text)
-        
-        self.cumleBulucu(paragraflar)
-        #self.cumleBolucu(text)
+
             
 
 
