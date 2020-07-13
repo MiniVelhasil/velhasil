@@ -1,0 +1,2 @@
+NlpToolkit-MorphologicalAnalysis==1.0.21
+NlpToolkit-NGram=1.0.10
