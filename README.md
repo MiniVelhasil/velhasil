@@ -40,3 +40,8 @@ print(velhasil_.kelimeOneri(velhasil_.cumleler[0].split(" ")[0]))
 atasozleri_ = atasozlerOneri.AtasozleriOneri()
 
 atasozleri_.paragrafKarsilastir(text.split(" "))
+
+#Kullanılan Kütüphane ve Araçlar
+
+Yazım Denetimi için https://github.com/StarlangSoftware/TurkishSpellChecker-Py 
+Kök Bulma İşlemi İçin 

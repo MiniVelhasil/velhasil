@@ -3,7 +3,7 @@
     #paragraftaki kelimeler listelenecek
     #stopwords temizlenecek
     #kökleri bulanacak
-#ATASÖZÜ ÖNERİ SİSTEMİ
+    #ATASÖZÜ ÖNERİ SİSTEMİ
 
 import velhasil
 class AtasozleriOneri():
@@ -17,13 +17,12 @@ class AtasozleriOneri():
             self.atasozuListesi.append(line.split(":")[2].split(" "))
     
     def stopwordTemizle(self, text):
+        #Buna şimdilik gerek olmadığına kannat getirdim. Gerekirse eklenecek.
         return 
     
-    def paragrafKarsilastir(self,text):
+    def atasozuBul(self,text):
         i = 0
-
-
-        for atasoz in self.atasozuListesi: 
+        for atasoz in self.atasozuListesi:
             sonuc = list(set(text) & set(atasoz))
             #print(atasoz)
             if len(sonuc)>3:
@@ -31,6 +30,7 @@ class AtasozleriOneri():
                 print("Bu metin için önerdiğmiz atasözü : ", self.atasozu[i])
                 print("Atasözünün anlamı : ", self.atasozuAnlami[i])
             i+=1
+
     def __init__(self,):
 
         self.atasozu =[]
