@@ -1,0 +1,537 @@
+﻿acayip: eksantrik
+açık: dekolte
+adım: etap
+adım adım: step by step
+ağaç parkı: arboretum
+akıtma: enjeksiyon
+aktarım: virman
+alıştırma: workout
+alıştırma dönemi: rodaj
+ana haber sunucusu: anchorman
+antrenman: workout
+aracı kurum:factoring
+aracılık: factoring
+arınık: steril
+art bölge: hinterland
+askısız: strapless
+aşınma payı: amortisman
+aşırı: ekstrem
+aşırma: plâjirizm
+at gezdirmeliği: padok
+atıcı: şutör
+atış alanı: poligon
+avro: euro
+ayakça: pedal
+ayırma: triyaj
+ayinle ilgili: ritüel
+aykırılık: anomali
+bağlantı : link
+banyo kabini: shower screen
+basamak: etap
+başkalaşım: metamorfizm
+başkalaşma: metamorfoz
+başlık: antet
+başlıklı: antetli
+başlıksız: antetsiz
+bayağı: kitsch
+bayağılık: kitsch
+bayi: corner
+bayilik vermek: corner vermek
+belgegeçer çevirgesi: faks modem
+belirsizlik hâli: volatilite
+benzetim: simülâsyon
+benzetimlik: simülâtör
+benzetim sineması: simülâsyon sineması
+bezekli: illüstratif
+bezeme: illüstrasyon
+bezenti: garnitür
+bezeyici: illüstratör
+biçim değişimi: transfigürasyon
+biçimleme: figürasyon
+biçimsel: formel
+biçimsel olmayan: enformel
+bilgi çarpıtma: dezenformasyon
+bilgilendirme: enformasyon
+bindirim: remix
+birleşik: kombine
+birleşim: kombinasyon
+birlikte yaşama: cohabitation
+bitirme tezi: lisans tezi
+bitki aktarımı: transplântasyon
+bitki nakli: transplântasyon
+bitki varlığı: flora
+boğumlanma: artikülâsyon
+boyut: format
+buharlı hamam: sauna
+burgaç: türbülâns
+buzlu çay: ıce-tea
+büküm: viraj
+büyük mağaza: mega store
+casusluk: espionnage
+cilt: : volüm
+çağcıl müzik: new age
+çardak: pergola
+çarpışma: crash-test
+çaşıtlık: espionnage
+çevirge: modem
+çevre: periferi
+çıkartma: sticker
+çıkış işlemi: check-out
+çıkış özeti: epikriz
+çıkmalık: podyum
+çırpıcı: mikser
+çivileme: smaç
+çivileyici: smaçör
+çizgi: kulvar
+çokgen: poligon
+çözücü: dekoder
+dağ yürüyüşü: trekking
+dalış: plonjon
+danslık: dansing
+değişim: metamorfizm
+değişken ölçü: eşelmobil
+değişme: metamorfoz
+deneme çekimi: casting
+denetim bağı: bandrol
+denetim noktası: check-point
+denetim pulu: bandrol
+deneyci: ampirist
+deneycilik: ampirizm
+deneye dayalı: ampirik
+deniz tedavisi: thalassotherapie
+derece: grado
+derin dondurucu: deep-freeze
+derin düşünme: meditasyon
+dev şehir: megapol
+dış hissedar: outsider
+dış ticaret serbestliği: liberasyon
+dilim: episot
+dinleme salonu: oditoryum
+dizüstü bilgisayarı: labtop
+doğum incinmesi: birth travma
+doku nakli: transplântasyon
+dolaşım: sirkülâsyon
+dolmuş: charter
+dorukçu yaklaşım: maksimalist
+duruklaştırma: maksimizasyon
+doruklaştırmak: maksimize etmek
+doruk noktası: maksimum
+dönemeç: viraj
+dönen top: ribaunt
+dönen topa çıkmak: ribaunta çıkmak
+dönen top mücadelesi: ribauntn ücadelesi
+dönen topu kapmak: ribaunt almak
+döviz: forex
+durum güldürüsü: sit-com
+duş kabini: shower screen
+duvar topu: squash
+duyar: sensor
+duyurum: sirküler
+düğüm: nod
+düğümcük: nodül
+dünden bugüne: retrospektif
+düşen (piyasa): bearish
+düşmek: kadük olmak
+düşmüş: kadük
+düzenleyici: regülâtör
+düzey: grade
+egemen güçler: establishment
+eğilim: tandans
+eğlendinlen alanı: rekreasyon
+ekranda: on screen
+el bilgisayarı: notebook
+eleme: triyaj
+elmek: e-mail
+emir eri: plânton
+en aza indirmek: minimize etmek
+en çok: maksimum (maksimal)
+engel: bariyer
+engelleme: filibustering
+en uygun: optimal
+en üst düzey: maksimum düzey
+en üst seviyeye çıkarma: maksimizasyon
+en üst seviyeye çıkarmak: maksimize etmek
+en yüksek: maksimum 
+e-posta: e-mail
+eskilik: antikite
+estireç: vantilâtör
+eşitlemek: egale etmek
+eşleme: senkronizasyon
+eşlemek: senkronize etmek
+eş zaman: senkron
+eş zamanlı: senkronik
+eş zamanlılık: senkroni
+eş zamanlılık: senkronizm
+etkisizleştirilmiş: nötralize
+etkisizleştirme: nötralizasyon
+etkisizleştirmek: nötralize etmek
+fabrikadan satış merkezi : outlet çenter
+fark: spread
+fıkra: anekdot
+fikir üretme: workshop
+fizik tedavi: fizyoterapi
+fizik tedavi uzmanı: fizyoterapist
+fotokurgu: fotomontaj
+fren görevlisi: gardıfren
+garip: eksantrik
+gecelik: over night
+geçerlilik: valör
+geleceklik hakkı: self-determinasyon
+genelge: sirküler
+gerçek: reel
+gerçekleştirme: realizasyon
+gerdirme: lifting
+geri ödeme: rambursman
+geriye dönük: retrospektif
+geriye dönüş: flash-back
+germe: stretching
+gezgin satıcı: plâsiyer
+giriş işlemi: check-in
+girişken: agresif
+gizlem: esoterik
+gizlemli: esoterik
+gök evi: plânetaryum
+görevdeşlik: sinerji
+gösterge: endeks
+gösterge çizelgesi: skala
+gösterge çizgisi: referans çizgisi
+göz bağcı: illüzyonist
+göz bağcılık: illüzyon
+göz kalemi: eyeliner
+göz yangısı: konjonktivite
+güçlendirme: shape master
+güdümleme: manipülâsyon
+güdümlemek: manipüle etmek
+gümrüksüz mağaza: free-shop
+güneş odası: solaryum
+halk oylaması: referandum
+halk oylamasına gitmek: referandum yapmak
+halk oylaması yapmak: referandum yapmak
+hatalı yürüme: step
+hava burgacı: türbülâns
+hava dolaşımı: sirkülâsyon
+hayvan varlığı: fauna
+hedef: destinasyon
+hesap belgesi: dekont
+hızlı: swift
+hikâyecik: anekdot
+hileli yönlendirme: manipülâsyon
+hileyle yönlendirmek: manipüle etmek
+hoş koku: aroma
+hoş kokulu: aromatik
+ısı tedavisi: termoterapi
+ışıklı teker: laser-disc
+ışıldak: projektör
+ışın tedavisi: radyoterapi
+ışın tedavi uzmanı: radyoterapisi
+iç hissedar: ınsider
+idman: workout
+iğne vurma: enjeksiyon
+ihraç izni: ihraç lisansı
+ikili sigorta: reasürans
+ikili sigorta şirketi: reasürans şirketi
+ikili sigorta yapmak : reasüre etmek
+ikinci kırdırma: reeskont
+ileri gelenler: establishment
+ileri teknoloji: high-tech
+ilgileşim: korelâsyon
+ilişim: link
+ilişme: protez
+ilk çağ: antikite
+ilke söz: motto
+ilk örnek: arketip
+imce: paraf
+imcelemek: parafe etmek
+imceli: paraflı
+imcesiz: parafsız
+imza belgesi: imza sirküleri
+incinme: travma
+indirim: ıskonto
+indirim saatleri: happy hour
+intihal: plâjirizm
+ithal izni: ithal lisansı
+iyimser: optimist
+iyimserlik: optimizm
+iz düşümü: projeksiyon
+izin belgesi: lisans
+kamu denetçisi: ombudsman
+kâr amaçlı satış: realizasyon
+karıştırıcı: blender
+karşı casusluk: kontrespiyonaj
+kavrayış: nosyon
+kaykaç: inline skate
+kaymalık: paten
+kaynak gösterme: referans
+ken düşler: otomatik
+kendiişlerlik: otomasyon
+kendiliğinden: spontane
+kendiüretir: otoprodüktör
+kesik: kupür
+kesin uyarı: ültimatom
+kestirim: projeksiyon
+kesyap: kolâj
+kırdırma: ıskonto
+kırkyama: patchwork
+kısa koşu: sprint
+kısa koşucu: sprinter
+kısa süreli film: kısa metrajlı film
+kıyı: periferi
+kıyı bankacılığı: off shore
+kızdırıcı: irrite edici
+kızdırmak: irrite etmek
+kimyasal tedavi: kemoterapi
+kodamanlar: establishment
+koku tedavisi: arometrapi
+kollayıcı: küratör
+konak: etap
+konut: rezidans
+kopuntu: diaspora
+kopyalama: klonlama
+kopyalamak: klonlamak
+koruma: bodyguard
+koruma aracı: eskort
+korumalık: bodyguardlık
+koşu yolu: parkur
+köklü: radikal
+köktencilik: radikalizm
+köktendinci: fundamentalist
+köktendincilik: fundamentalizm
+kötümser: pesimist
+kötümserlik: pesimizm
+kredi açıcı: kreditör
+kurgu: montaj
+kurgucu: montajcı
+kurgu masası: montaj masası
+kurgu odası: montaj odası
+kurmak: monte etmek
+kurtarımcılık: irredantizm
+kurum: establishment
+kuşak: jenerasyon
+küçük gazete: tabloid
+kümelenme: konstellâsyon
+makaslama vuruş: röveşata
+malî: finansal
+malî destekçi: finansör
+malî işler: finans
+mayalanma: fermantasyon
+merkezkaç: santrifüj
+mevcut durum: statüko
+mini gösterici: monitör
+mini put: idol
+mütecaviz: agresif
+nakit kartı: cash cart
+nesil: jenerasyon
+niceleyici: kantitatif
+nicelik: quantite
+niteleyici: kalitatif
+nitelik: kalite
+nitelikli: kalifiye
+niteliklilik: kalifikasyon
+nüfus: popülâsyon
+olay fotocu: paparazzi
+olay fotoculuk: paparazzilik
+oran: rasyo
+organ aktarımı: transplântasyon
+organ nakli: transplântasyon
+oyma baskı: estamp
+oyunca: skeç
+oyuncu seçimi: casting
+ödeme: rambursman
+öfkelendirici: irrite edici
+öfkelendirmek: irrite etmek
+önceden satış: alivre
+öncü: avangart
+öndelik: avans
+öndelik çekmek: avans çekmek
+öndelik vermek: avans vermek
+ön doğru: postülât
+ön içki: aperitif
+ön kesinti: stopaj
+ön yetkinlik: ön lisans
+örtülü: undercover
+paraca desteklemek: finanse etmek
+paraca desteklenmek: finanse edilmek
+paracı: monetarist
+paracılık: monetarizm
+para desteği: finansman
+para destekçisi: finansör
+para dolaşımı: sirkülâsyon
+parça: fragman
+parça: modül
+parçacık: partikül
+parçalı sistem: modüler sistem
+pasçı: pasör
+pasveren: pasör
+pazarlama: marketing
+peynirli kek: cheese cake
+pilot köşkü: kokpit
+piyasa kurucu: market maker
+rapor yazıcı: raportör
+renk uzmanı: colorist
+resimleme: illüstrasyon
+resimleyici: illüstratör
+resmî olmayan eğitim: enformel eğitim
+ruh göçü: reenkarnasyon
+sabit fikir: idefiks
+sağlığa uygunluk: hijyen
+sağlık bilgisi: hijyen
+sağlık havuzu: jakuzi
+sağlık koruma: sanitasyon
+sağlıklı: hijyenik
+saklı yazı: kripto
+saldırgan: agresif
+sarsıntı: travma
+satım: dealing
+satış odası: dealing room
+saydam: transparan
+sayfa düzeni: mizanpaj
+seçkinler: establishment
+sefer: ekspedisyon
+serbestlik: liberasyon
+sergilik: stant
+ses çevirgesi: voice modem
+seslendirici: dublâjcı
+seslendiricilik: dublâjcılık
+seslendirme: dublâj
+ses yoğunluğu: volüm
+seviye: grado
+sınır: limit
+sınırlamak: lokalize olmak
+sınırlandırılmış: lokalize
+sınırlandırmak: lokalize etmek
+sınırlı uyuşturma: lokal anestezi
+sinirlendirici: irrite edici
+sinirlendirmek: irrite etmek
+sokak basketbolü: black top
+soyutlamak: izole etmek
+sözçatar: stand-up komedyen
+su bahçesi: akualand
+süreç: proses
+süzek: filtre
+şeklî: formel
+şeklî olmayan: enformel
+şerit: kulvar
+şerit perde: jalûzi
+şirketler birliği: konsorsiyum
+şişirme haber: asparagas
+takaslama: swap
+takımca tekelleşme: oligopolleşme
+takım tekeli: oligopol
+takımyıldız: konstellâsyon
+takıntı: obsesyon
+takıntılı: obsesif
+takma: protez
+tanıtımlık: jenerik
+tanıtma kartı: kartvizit
+tanıtmalık: prospektüs
+tanıtma yazısı: jenerik
+tarafsız: nötr
+tarafsızlaştırılmış: nötralize
+tarafsızlaştırma: nötralizasyon
+tarafsızlaştırmak: nötralize etmek
+tarife: prospektüs
+tarih yanılgısı: anakronizm
+taşımalık: konteyner
+tatbilir: gurme
+tavsiye mektubu: referans mektubu
+tedavi: terapi
+tedavi uzmanı: terapist
+telif hakkı: royalty
+ters repo: reverse repo
+tınlaşım: rezonans
+tıpkıçekim: fotokopi
+tırmanış: eskalâsyon
+toplu: kombine
+toplu akın: kombine akın
+toplu bilet: kombine bilet
+toplu savunma: kombine savunma
+toplu yarış: kombine yarış
+tuğla oyunu: brick game
+tuhaf: eksantrik
+tüylü top: badminton
+tüzük: regülâsyon
+uç: limit
+uçrak: eksantrik
+uçuş kartı: boarding cart
+uranlık: pankart
+uygun değer: optimum
+uyum: oryantasyon
+uyuşturma: anestezi
+uzaktan komut: telekomand
+uzman: eksper
+uzman incelemesi: ekspertiz
+uzman raporu: ekspertiz raporu
+uzun koşu: maraton
+uzun koşucu: maratoncu
+uzunluk: metraj
+uzun süreli film: uzun metrajlı film
+üçlü alan: triyaj
+üst denetçi: süpervizör
+üst sınır: limit
+üstsüz: topless
+üst yetkinlik: yüksek lisans
+vadeli döviz ticareti: forward
+varış yeri: destinasyon
+varlık: popülâsyon
+varlık kartı: clip cart
+var olan durum: statüko
+vasıflı: kalifiye
+vasıflılık: kalifikasyon
+verimsiz: steril
+vurmalı (çalgı): perküsyon
+vurucu: şutör
+vuruk: travma
+vuruk bilimi: travmatoloji
+yabancı para: forex
+yakmalık: krematoryum
+yalıtım: izolâsyon
+yalıtkan: izolâtör
+yama işi: patchwork
+yanılsama: illüzyon
+yanıltma haber: dezenformasyon
+yankı bilimi: akustik
+yanlık: garnitür
+yansıtıcı: reflektif
+yansıtım: projeksiyon
+yapboz: puzzle
+yapı: konstrüksiyon
+yayımcı: editör
+yayın dışı: off the record
+yaylım ateş: salvo
+yazıcı: printer
+yelpaze: skala
+yelveren: vantilâtör
+yeni dalga: new wave
+yeraltı sanatı: underground sanat
+yeraltı sineması: underground sinema
+yerel: lokal
+yer hizmetleri: handling
+yerleştirme: enstalâsyon
+yerleştirmek: monte etmek
+yetiştirici: monitör
+yetkilendirme: otorizasyon
+yetkinlik: lisans
+yıllık: almanak
+yıpranma payı: amortisman
+yırtıcı: agresif
+yoğunluk: volüm
+yol: kulvar
+yonga: çip
+yozlaşma: dejenerasyon
+yozlaşmak: dejenere olmak
+yozlaşmış: dejenere
+yozlaştırmak: dejenere etmek
+yönetme kolu: joystick
+yönetmelik: regülâsyon
+yönleyici: navigatör
+yumru: nod
+yumrucuk: nodül
+yüksek teknoloji: high-tech
+yükselen: bullish
+zarar kesme: stop-loss
+zekâ düzeyi (zd): ıq
+zevksizlik: kitsch
+zıpzıp atlama: bungee- jumping
+züppe: snop
+züppelik: snobizm
+ayraç: parantez

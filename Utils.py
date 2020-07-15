@@ -57,7 +57,7 @@ class utils():
             @return             : Tüm karakterleri küçük harfe dönüştürülmüş döküman içeriği
         '''
 
-        print ('Tüm karakterler küçük harfe dönüştürülüyor ...')
+        #print ('Tüm karakterler küçük harfe dönüştürülüyor ...')
 
         text = re.sub(r"I", "ı", text)
         text = text.lower()
@@ -90,7 +90,7 @@ class utils():
             @return string                  : İstenmeyen karakterlerin temizlendiği text dökümanı döndürür.
         '''
 
-        print ('Belirtilen alfabede olmayan tüm karakterleri kaldırıyor ...')
+        #print ('Belirtilen alfabede olmayan tüm karakterleri kaldırıyor ...')
 
         cleaned_text = ''
         for char in text:
