@@ -6,6 +6,8 @@ Created on Thu Jul  9 14:30:58 2020
 """
 import re
 import listeler
+import Utils
+
 from SpellChecker.SimpleSpellChecker import SimpleSpellChecker
 from Corpus.Sentence import Sentence
 from Dictionary.Word import Word
@@ -14,7 +16,6 @@ from NGram.NGram import NGram
 from SpellChecker.NGramSpellChecker import NGramSpellChecker
 from NGram.NoSmoothing import NoSmoothing
 
-import time
 
 
 class Velhasil():
@@ -76,8 +77,9 @@ class Velhasil():
         text = re.sub(r"  ", " ", text)
         # İstatistik çıkarmak için tüm metni küçük harfe dönüştürüyoruz.
         text = re.sub(r"I", "ı", text)
-        text = text.lower()
-        text
+        text = Utils.utils.toLowercase(text)
+        text = Utils.utils.removePunction(text)
+
         kelimeler= text.split(" ")
         self.kelimesayisi = len(kelimeler)
         self.karaktersayisi = len(text)
