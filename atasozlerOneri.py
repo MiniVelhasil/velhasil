@@ -6,15 +6,17 @@
     #ATASÖZÜ ÖNERİ SİSTEMİ
 
 import velhasil
+import Utils
 class AtasozleriOneri():
 
     def atasozleriListesi(self):
         anahtarKelimeler =[]
-        atasozleri = open("data/atasozleritest.txt", "r", encoding="utf8")
+        atasozleri = open("data/bilgiler.txt", "r", encoding="utf8")
         for line in atasozleri:
             self.atasozu.append(line.split(":")[0])
             self.atasozuAnlami.append(line.split(":")[1])
-            self.atasozuListesi.append(line.split(":")[2].split(" "))
+            self.atasozuListesi.append(line.split(":")[2].split(", "))
+
     
     def stopwordTemizle(self, text):
         #Buna şimdilik gerek olmadığına kannat getirdim. Gerekirse eklenecek.
@@ -22,13 +24,23 @@ class AtasozleriOneri():
     
     def atasozuBul(self,text):
         i = 0
+        ytext= []
+        with open ("data/stopwords.txt", encoding="UTF-8") as f:
+            stopwords = f.read ()
+        for kelime in text:
+            kelime = kelime.replace(" ","")
+            kelime = Utils.utils.toLowercase(Utils.utils.removePunction(Utils.utils.removePunction(kelime)))
+            if not (kelime in stopwords):
+                ytext.append(kelime)
+        print(ytext)
         for atasoz in self.atasozuListesi:
-            sonuc = list(set(text) & set(atasoz))
+            sonuc = list(set(ytext) & set(atasoz))
             #print(atasoz)
-            if len(sonuc)>3:
-                
-                print("Bu metin için önerdiğmiz atasözü : ", self.atasozu[i])
-                print("Atasözünün anlamı : ", self.atasozuAnlami[i])
+            #print(sonuc)
+            if len(sonuc)>5:
+                print (sonuc)
+                print(self.atasozu[i]+" : "+self.atasozuAnlami[i])
+               #print("Atasözünün anlamı : ", self.atasozuAnlami[i])
             i+=1
 
     def __init__(self,):

@@ -22,7 +22,7 @@ class utils():
 
         regex = r"(?<!\d)[.,;:?)(](?!\d)"
 
-        result = re.sub(regex, "", kelime, 0)
+        result = re.sub(regex, "", text, 0)
         return result
 
         return text
