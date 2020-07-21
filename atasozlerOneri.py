@@ -25,10 +25,13 @@ class AtasozleriOneri():
     def atasozuBul(self,text):
         i = 0
         ytext= []
+        text = text.split(" ")
         with open ("data/stopwords.txt", encoding="UTF-8") as f:
             stopwords = f.read ()
         for kelime in text:
+            kelime = Utils.utils.removeNewLine (kelime)
             kelime = kelime.replace(" ","")
+            #kelime = Utils.utils.removeNewLine(kelime)
             kelime = Utils.utils.toLowercase(Utils.utils.removePunction(Utils.utils.removePunction(kelime)))
             if not (kelime in stopwords):
                 ytext.append(kelime)
@@ -37,16 +40,18 @@ class AtasozleriOneri():
             sonuc = list(set(ytext) & set(atasoz))
             #print(atasoz)
             #print(sonuc)
-            if len(sonuc)>5:
-                print (sonuc)
-                print(self.atasozu[i]+" : "+self.atasozuAnlami[i])
-               #print("Atasözünün anlamı : ", self.atasozuAnlami[i])
-            i+=1
+            if len(sonuc)>=5:
+                self.atasozuOnerileri.append(str(len(sonuc))+ " : " + self.atasozu[i]+" : "+self.atasozuAnlami[i]) #print (sonuc)
 
+               #print("Atasözünün anlamı : ", self.atasozuAnlami[i])
+
+            i+=1
+        return self.atasozuOnerileri
     def __init__(self,):
 
         self.atasozu =[]
         self.atasozuAnlami=[]
         self.atasozuListesi  =[]
+        self.atasozuOnerileri=[]
         self.atasozleriListesi()
         

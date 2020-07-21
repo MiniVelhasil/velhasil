@@ -1,7 +1,7 @@
 import velhasil
 import atasozlerOneri
 
-with open ('testmetin.txt', 'r', encoding="utf8") as myfile:
+with open ('data/haber.txt', 'r', encoding="utf8") as myfile:
     text = myfile.read ()
 
 
@@ -35,7 +35,13 @@ def main():
 
     # Atasözü öneri sistemi
     atasozleri_ = atasozlerOneri.AtasozleriOneri ()
-    atasozleri_.atasozuBul (text.split (" "))
+    oneriler = atasozleri_.atasozuBul (text)
+    oneriler.sort(reverse=True)
+    #benzerlik oranına göre sıralama yapıyoruz
+    print(len(oneriler))
+    #En benzer ilk 5 atasözü önerisini yazdırır
+    for i in oneriler[0:5]:
+        print(i)
 
 
 if __name__ == '__main__':
