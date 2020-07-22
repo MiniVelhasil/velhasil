@@ -27,20 +27,21 @@ def main():
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
     # print(velhasil_.yazimKontrolu(velhasil_.cumleler[0]))
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
-    print (velhasil_.yazimKontrolu ("ortyaa "))
-    print (velhasil_.turkcesiniOner ("artaya"))
+    print (velhasil_.yazimDenetimi ("Ahmet'in"))
+
+    print (velhasil_.turkcesiniOner ("referans"))
 
     # Metindeki ilk cümlenin ilk kelimesin ile ilgili yazım önerileri sunar
-    print (velhasil_.kelimeOneri ("ortyaa"))
+    print ("kelime önerileri " ,velhasil_.kelimeOneri ("aHMET'İN"))
 
     # Atasözü öneri sistemi
     atasozleri_ = atasozlerOneri.AtasozleriOneri ()
     oneriler = atasozleri_.atasozuBul (text)
     oneriler.sort(reverse=True)
     #benzerlik oranına göre sıralama yapıyoruz
-    print(len(oneriler))
-    #En benzer ilk 5 atasözü önerisini yazdırır
-    for i in oneriler[0:5]:
+    print(len(oneriler)) #önerilen atasözü sayısını gösterir.
+    #En benzer ilk 10 atasözü önerisini yazdırır
+    for i in oneriler[0:10]:
         print(i)
 
 

@@ -17,10 +17,7 @@ class AtasozleriOneri():
             self.atasozuAnlami.append(line.split(":")[1])
             self.atasozuListesi.append(line.split(":")[2].split(", "))
 
-    
-    def stopwordTemizle(self, text):
-        #Buna şimdilik gerek olmadığına kannat getirdim. Gerekirse eklenecek.
-        return 
+
     
     def atasozuBul(self,text):
         i = 0
@@ -32,17 +29,17 @@ class AtasozleriOneri():
             kelime = Utils.utils.removeNewLine (kelime)
             kelime = kelime.replace(" ","")
             #kelime = Utils.utils.removeNewLine(kelime)
-            kelime = Utils.utils.toLowercase(Utils.utils.removePunction(Utils.utils.removePunction(kelime)))
+            kelime = Utils.utils.toLowercase(Utils.utils.removePunction(Utils.utils.removePunctionEnd(kelime)))
             if not (kelime in stopwords):
                 ytext.append(kelime)
         print(ytext)
         for atasoz in self.atasozuListesi:
             sonuc = list(set(ytext) & set(atasoz))
             #print(atasoz)
-            #print(sonuc)
+
             if len(sonuc)>=5:
                 self.atasozuOnerileri.append(str(len(sonuc))+ " : " + self.atasozu[i]+" : "+self.atasozuAnlami[i]) #print (sonuc)
-
+                #print (sonuc)
                #print("Atasözünün anlamı : ", self.atasozuAnlami[i])
 
             i+=1

@@ -18,12 +18,12 @@ from NGram.NoSmoothing import NoSmoothing
 
 
 class Velhasil ():
-    fsm = FsmMorphologicalAnalyzer ("data/turkish_dictionary.txt", "data/turkish_misspellings.txt",
-                                    "data/turkish_finite_state_machine.xml")
+
     nGram = NGram ("data/ngram.txt")
 
     def __init__(self, text):
-
+        self.fsm = FsmMorphologicalAnalyzer ("data/turkish_dictionary.txt", "data/turkish_misspellings.txt",
+                                             "data/turkish_finite_state_machine.xml")
         paragraflar = self.paragrafAyir (text)
 
         self.kelimeSayici (text)
@@ -117,10 +117,43 @@ class Velhasil ():
                         return False
 
     # Yazım kontrolü yapan metodlarımız
+    def yazimDenetimi(self, kelime):
+        '''
+            Kelimenin yazım kontrolünü yapar.
+            @param  string kelime : kelimenin kendisi
+            @return int      : 0-> doğru metin ; 1->Kelime bir noktalama işareti  2-> kelime yanlış
+            3-> kelimeden sonra nokta koyulmalı
+            4-> Noktalama işaretinden sonra boşluk bırakılmalı (merhana,dünya) uyarı verecek (3,14) -doğru döndürecek
+            5-> noktadan sonra büyük harf gelmeli
+
+             NOKTADAN SONRA BÜYÜK HARFLE BAŞLAMIŞMI.
+             SONRAKİ KARAKTER /N İSE (yeni paragrafa geçilmişse-cümle bitmişse) NOKTA KOYULMUŞMU?
+             nokta virgül gibi işaretten sonra boşluk bırakılmış mı?
+        '''
+
+        noktalamaİsaretleri = [".", ",", "?", "!", "...", ":", "(", ")"]
+        if  len(kelime)==1:
+            if kelime in noktalamaİsaretleri:
+                print("kelime noktalaama işaretidir!")
+                return 1 #Kelime Noktalama işaretidir. Burada yazım ynalışı var.
+        kelime = Utils.utils.removePunctionEnd(kelime)  #kelimenin başındaki ve sonundaki noktalama işaretlerini kaldırıypruz
+                                                        #kelimenin içindeki noktalama işaretlerine karışmıyoruz
+        print(kelime)
+        if self.isCorrect(kelime):
+            return 0 #Kelime doğrudur
+
+        return 2 #Kelime yanlış yazılmıştır.
+
+
+
     def yazimKontrolu(self, cumle):
         # simpleSpellChecker = SimpleSpellChecker(self.fsm)
 
         return (self.simpleSpellChecker.spellCheck (Sentence (cumle)).toString ())
+    def isCorrect(self,kelime: str) -> bool:
+        fsmParses = self.fsm.morphologicalAnalysis (kelime)
+
+        return fsmParses.size () != 0
 
     def NGramYazimKontrolu(self, cumle):
 
@@ -139,7 +172,9 @@ class Velhasil ():
         kelime = Utils.utils.removePunction(kelime)
 
         for line in searchfile:
-            if re.search (r'\b' + kelime + r'\b', str(line.split(" ")[1])):
+            aranan = str(line.split(":")[1])
+            aranan = aranan.replace(" ","")
+            if re.search (r'\b' + kelime + r'\b', aranan):
                 ilkKelime.append(Utils.utils.removePunction(str(line.split (" ")[0])))
 
         searchfile.seek (0)

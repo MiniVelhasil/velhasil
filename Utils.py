@@ -20,7 +20,7 @@ class utils():
             @return string      : Noktalama işaretleri kaldırılmış text
         '''
 
-        regex = r"(?<!\d)[.,;:?)(](?!\d)"
+        regex = r"(?<!\d)[.,;:\"”?)(](?!\d)"
 
         result = re.sub(regex, "", text, 0)
         return result
