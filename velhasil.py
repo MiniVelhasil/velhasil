@@ -101,21 +101,23 @@ class Velhasil ():
     # #Uzun cümlelerin bölünmeye uygun olup olmadığını anlamak için kullandığımız fonksiyonumuz
     # @zamanHesapla
     def cumleBolucu(self, text):
-        text = text.split (" ")
+        kelimeler = text.split (" ")
         for baglac in listeler.baglaclar:
 
-            if baglac in text:
-                index = text.index (baglac)
-
-                oncekiKelime = self.noktalamaTemizleyicisi (text[index - 1]).lower ()
+            if baglac in kelimeler:
+                index = kelimeler.index (baglac)
+                oncekiKelime = Utils.utils.removePunction (kelimeler[index - 1]).lower ()
                 for line in self.searchfile:
-                    # print(re.search(r'\b' + oncekiKelime.lower() + '\b', line.split(" ")))
-                    print (str (line.split (" ")[1]))
-                    print (oncekiKelime)
-                    if re.search (r'\b' + oncekiKelime + r'\b', str (line.split (" ")[1])):
-                        return True
-                    else:
-                        return False
+                    #print(re.search(r'\b' + oncekiKelime.lower() + '\b', line.split(" ")))
+                    #print (str (line.split (" ")[1]))
+                    #print (oncekiKelime)
+                    result = re.findall ('\\b' + oncekiKelime + '\\b', str (line.split (" ")[1]))
+                    #print(result)
+                    if len(result)>0:
+                        return 1
+                self.searchfile.seek(0)
+
+        return 0
 
     def yazimDenetimi(self, text):
         '''

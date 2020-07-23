@@ -20,23 +20,24 @@ def main():
     print ("**************************")
 
     # Cümlenin bölünüp bölünmeyeceğini önerisini "true" veya "false" olarak bildirir
-    # print(velhasil_.cumleBolucu(velhasil_.cumleler[0]))
-    #for count, i in enumerate(velhasil_.cumleler):
-        #print (count,":",i)
-
+    cumleConuc =[]
+    for cumle in velhasil_.cumleler:
+        cumleConuc.append(velhasil_.cumleBolucu(cumle))
+    print(cumleConuc)
+    #print(velhasil_.cumleBolucu(velhasil_.cumleler[0]))
+    """for count, i in enumerate(velhasil_.cumleler):
+        print (count,":",i)"""
+    print ("**************************")
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
     # print(velhasil_.yazimKontrolu(velhasil_.cumleler[0]))
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
-    #gelen = velhasil_.yazimDenetimi ("vermiş.")
-    #print("sonuç : ",gelen)
     print ("kelime önerileri " ,velhasil_.yazimDenetimi (text))
-
-
+    print ("**************************")
     print (velhasil_.turkcesiniOner ("etap"))
-
+    print ("**************************")
     # Metindeki ilk cümlenin ilk kelimesin ile ilgili yazım önerileri sunar
-    print ("kelime önerileri " ,velhasil_.kelimeOneri ("hiçbir"))
-
+    print ("kelime önerileri " ,velhasil_.kelimeOneri ("yalnış"))
+    print ("**************************")
     # Atasözü öneri sistemi
     atasozleri_ = atasozlerOneri.AtasozleriOneri ()
     oneriler = atasozleri_.atasozuBul (text)
