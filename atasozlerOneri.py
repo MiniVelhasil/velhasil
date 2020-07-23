@@ -5,20 +5,18 @@
     #kökleri bulanacak
     #ATASÖZÜ ÖNERİ SİSTEMİ
 
-import velhasil
+
 import Utils
 class AtasozleriOneri():
 
     def atasozleriListesi(self):
-        anahtarKelimeler =[]
-        atasozleri = open("data/bilgiler.txt", "r", encoding="utf8")
+
+        atasozleri = open("data/atasozleri.txt", "r", encoding="utf8")
         for line in atasozleri:
             self.atasozu.append(line.split(":")[0])
             self.atasozuAnlami.append(line.split(":")[1])
             self.atasozuListesi.append(line.split(":")[2].split(", "))
 
-
-    
     def atasozuBul(self,text):
         i = 0
         ytext= []

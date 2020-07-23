@@ -1,4 +1,5 @@
 import re
+from string import punctuation
 class utils():
     def removePunction(text):
         '''
@@ -6,26 +7,26 @@ class utils():
             @param  string text : Döküman içeriği
             @return string      : Noktalama işaretleri kaldırılmış text
         '''
-
-
-        from string import punctuation
         text = ''.join([c for c in text if c not in punctuation])
+
 
         return text
 
     def removePunctionEnd(text):
         '''
-            Döküman içerisindeki noktalama işaretlerini kaldırır.
+            Döküman içerisindeki kelimelerin başındaki ve sonundaki noktalama işaretlerini kaldırır.
             @param  string text : Döküman içeriği
             @return string      : Noktalama işaretleri kaldırılmış text
         '''
 
-        regex = r"(?<!\d)[.,;:\"”?)(](?!\d)"
+       # regex = r"(?<!\d)[.,;:\"”?)(](?!\d)"
 
-        result = re.sub(regex, "", text, 0)
-        return result
+        #result = re.sub(regex, "", text, 0)
+        new = [i.strip (punctuation) for i in text.split ()]
+        #print (" ".join (new))
+        return " ".join (new)
 
-        return text
+        #return text
 
 
     def replaceChars(text):

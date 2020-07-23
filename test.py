@@ -27,12 +27,15 @@ def main():
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
     # print(velhasil_.yazimKontrolu(velhasil_.cumleler[0]))
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
-    print (velhasil_.yazimDenetimi ("Ahmet'in"))
+    #gelen = velhasil_.yazimDenetimi ("vermiş.")
+    #print("sonuç : ",gelen)
+    print ("kelime önerileri " ,velhasil_.yazimDenetimi (text))
 
-    print (velhasil_.turkcesiniOner ("referans"))
+
+    print (velhasil_.turkcesiniOner ("etap"))
 
     # Metindeki ilk cümlenin ilk kelimesin ile ilgili yazım önerileri sunar
-    print ("kelime önerileri " ,velhasil_.kelimeOneri ("aHMET'İN"))
+    print ("kelime önerileri " ,velhasil_.kelimeOneri ("hiçbir"))
 
     # Atasözü öneri sistemi
     atasozleri_ = atasozlerOneri.AtasozleriOneri ()
