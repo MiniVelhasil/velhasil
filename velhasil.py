@@ -103,7 +103,6 @@ class Velhasil ():
     def cumleBolucu(self, text):
         kelimeler = text.split (" ")
         for baglac in listeler.baglaclar:
-
             if baglac in kelimeler:
                 index = kelimeler.index (baglac)
                 oncekiKelime = Utils.utils.removePunction (kelimeler[index - 1]).lower ()
@@ -116,7 +115,6 @@ class Velhasil ():
                     if len(result)>0:
                         return 1
                 self.searchfile.seek(0)
-
         return 0
 
     def yazimDenetimi(self, text):

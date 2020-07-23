@@ -43,7 +43,7 @@ def main():
     oneriler = atasozleri_.atasozuBul (text)
     oneriler.sort(reverse=True)
     #benzerlik oranına göre sıralama yapıyoruz
-    print(len(oneriler)) #önerilen atasözü sayısını gösterir.
+    #print(len(oneriler)) #önerilen atasözü sayısını gösterir.
     #En benzer ilk 10 atasözü önerisini yazdırır
     for i in oneriler[0:10]:
         print(i)

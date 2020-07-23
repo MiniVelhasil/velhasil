@@ -1,18 +1,12 @@
-    #Atasözleri text dosaysı açılacak 
-    #3. sütundaki kelimelerle paragraftan seçilen kelimeler karşılaştırılacak
-    #paragraftaki kelimeler listelenecek
-    #stopwords temizlenecek
-    #kökleri bulanacak
     #ATASÖZÜ ÖNERİ SİSTEMİ
-
 
 import Utils
 class AtasozleriOneri():
 
     def atasozleriListesi(self):
 
-        atasozleri = open("data/atasozleri.txt", "r", encoding="utf8")
-        for line in atasozleri:
+
+        for line in self.atasozleri:
             self.atasozu.append(line.split(":")[0])
             self.atasozuAnlami.append(line.split(":")[1])
             self.atasozuListesi.append(line.split(":")[2].split(", "))
@@ -30,7 +24,7 @@ class AtasozleriOneri():
             kelime = Utils.utils.toLowercase(Utils.utils.removePunction(Utils.utils.removePunctionEnd(kelime)))
             if not (kelime in stopwords):
                 ytext.append(kelime)
-        print(ytext)
+        #print(ytext)
         for atasoz in self.atasozuListesi:
             sonuc = list(set(ytext) & set(atasoz))
             #print(atasoz)
@@ -43,7 +37,7 @@ class AtasozleriOneri():
             i+=1
         return self.atasozuOnerileri
     def __init__(self,):
-
+        self.atasozleri = open ("data/atasozleri.txt", "r", encoding="utf8")
         self.atasozu =[]
         self.atasozuAnlami=[]
         self.atasozuListesi  =[]
