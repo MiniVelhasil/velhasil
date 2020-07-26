@@ -8,8 +8,6 @@ class utils():
             @return string      : Noktalama işaretleri kaldırılmış text
         '''
         text = ''.join([c for c in text if c not in punctuation])
-
-
         return text
 
     def removePunctionEnd(text):
@@ -18,16 +16,11 @@ class utils():
             @param  string text : Döküman içeriği
             @return string      : Noktalama işaretleri kaldırılmış text
         '''
-
        # regex = r"(?<!\d)[.,;:\"”?)(](?!\d)"
-
         #result = re.sub(regex, "", text, 0)
         new = [i.strip (punctuation) for i in text.split ()]
         #print (" ".join (new))
         return " ".join (new)
-
-        #return text
-
 
     def replaceChars(text):
         '''
@@ -36,9 +29,6 @@ class utils():
             @param  dict    char_dict   : Değişim yapılacak anahtar ve değer sözlüğü
             @return string              : Karakterleri değiştirilmiş döküman içeriği
         '''
-
-
-
         text = re.sub(r"Â", "A", text)
         text = re.sub(r"â", "a", text)
         text = re.sub(r"Î", "I", text)
@@ -57,12 +47,9 @@ class utils():
             @param string text  : Döküman içeriği
             @return             : Tüm karakterleri küçük harfe dönüştürülmüş döküman içeriği
         '''
-
         #print ('Tüm karakterler küçük harfe dönüştürülüyor ...')
-
         text = re.sub(r"I", "ı", text)
         text = text.lower()
-
         return text
 
 
@@ -75,10 +62,8 @@ class utils():
             @return             : Dökümanda bulunun yeni satırların kaldırılmış hali
         '''
 
-
         text = re.sub(r"\n", "  ", text)
         text = re.sub(r"  ", " ", text)
-
         return text
 
 
@@ -92,7 +77,6 @@ class utils():
         '''
 
         #print ('Belirtilen alfabede olmayan tüm karakterleri kaldırıyor ...')
-
         cleaned_text = ''
         for char in text:
             if char in alfabe:

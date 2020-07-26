@@ -102,19 +102,20 @@ class Velhasil ():
     # @zamanHesapla
     def cumleBolucu(self, text):
         kelimeler = text.split (" ")
-        for baglac in listeler.baglaclar:
-            if baglac in kelimeler:
-                index = kelimeler.index (baglac)
-                oncekiKelime = Utils.utils.removePunction (kelimeler[index - 1]).lower ()
-                for line in self.searchfile:
-                    #print(re.search(r'\b' + oncekiKelime.lower() + '\b', line.split(" ")))
-                    #print (str (line.split (" ")[1]))
-                    #print (oncekiKelime)
-                    result = re.findall ('\\b' + oncekiKelime + '\\b', str (line.split (" ")[1]))
-                    #print(result)
-                    if len(result)>0:
-                        return 1
-                self.searchfile.seek(0)
+        if len(kelimeler)>20:
+            for baglac in listeler.baglaclar:
+                if baglac in kelimeler:
+                    index = kelimeler.index (baglac)
+                    oncekiKelime = Utils.utils.removePunction (kelimeler[index - 1]).lower ()
+                    for line in self.searchfile:
+                        #print(re.search(r'\b' + oncekiKelime.lower() + '\b', line.split(" ")))
+                        #print (str (line.split (" ")[1]))
+                        #print (oncekiKelime)
+                        result = re.findall ('\\b' + oncekiKelime + '\\b', str (line.split (" ")[1]))
+                        #print(result)
+                        if len(result)>0:
+                            return 1
+                    self.searchfile.seek(0)
         return 0
 
     def yazimDenetimi(self, text):
@@ -148,7 +149,7 @@ class Velhasil ():
         # print()
         return sonuc
     # Yazım kontrolü yapan metodlarımız
-    def yazimDenetimiIslem(self, kelime,oncekiKelime):
+    def yazimDenetimiIslem(self, kelime,oncekiKelime=""):
         '''
             Kelimenin yazım kontrolünü yapar.
             @param  string kelime : kelimenin kendisi
@@ -192,7 +193,6 @@ class Velhasil ():
                 return 6 #kelime doğru ancak türkçe önerileri var
             else:
                 return 0 #Kelime doğrudur
-
 
         return 2 #Kelime yanlış yazılmıştır.
 

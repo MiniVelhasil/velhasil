@@ -22,11 +22,12 @@ def main():
     # Cümlenin bölünüp bölünmeyeceğini önerisini "true" veya "false" olarak bildirir
     cumleConuc =[]
     for cumle in velhasil_.cumleler:
-        cumleConuc.append(velhasil_.cumleBolucu(cumle))
+       cumleConuc.append(velhasil_.cumleBolucu(cumle))
+    print(len(cumleConuc))
     print(cumleConuc)
     #print(velhasil_.cumleBolucu(velhasil_.cumleler[0]))
-    """for count, i in enumerate(velhasil_.cumleler):
-        print (count,":",i)"""
+    #for count, i in enumerate(velhasil_.cumleler):
+        #print (count,":",i)
     print ("**************************")
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
     # print(velhasil_.yazimKontrolu(velhasil_.cumleler[0]))

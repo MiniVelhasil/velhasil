@@ -4,8 +4,6 @@ import Utils
 class AtasozleriOneri():
 
     def atasozleriListesi(self):
-
-
         for line in self.atasozleri:
             self.atasozu.append(line.split(":")[0])
             self.atasozuAnlami.append(line.split(":")[1])
