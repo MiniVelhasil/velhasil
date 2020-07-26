@@ -231,10 +231,13 @@ class MainWindow(QMainWindow):
         test = 0
 
         textboxValue = self.editor.toPlainText ()
-        #textboxValue  =''.join (xml.etree.ElementTree.fromstring (textboxValue).itertext ())
+        #
         kelimeler= textboxValue.split(" ")
         self.editor.clear()
-        velhasil_ = velhasil.Velhasil ()
+        if test ==0:
+            velhasil_ = velhasil.Velhasil ()
+        else:
+            textboxValue = ''.join (xml.etree.ElementTree.fromstring (textboxValue).itertext ())
         kontrol = velhasil_.yazimDenetimi(textboxValue)
         print(kontrol)
         #print(kelimeler)
