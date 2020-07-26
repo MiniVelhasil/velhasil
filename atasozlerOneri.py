@@ -1,6 +1,8 @@
     #ATASÖZÜ ÖNERİ SİSTEMİ
 
 import Utils
+
+
 class AtasozleriOneri():
 
     def atasozleriListesi(self):

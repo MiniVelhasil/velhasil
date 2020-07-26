@@ -1,2 +1,3 @@
 NlpToolkit-MorphologicalAnalysis==1.0.21
 NlpToolkit-NGram=1.0.10
+PyQt5-stubs==5.14.2.2

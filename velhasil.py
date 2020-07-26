@@ -7,7 +7,6 @@ Created on Thu Jul  9 14:30:58 2020
 import re
 import listeler
 import Utils
-from string import punctuation
 from SpellChecker.SimpleSpellChecker import SimpleSpellChecker
 from Corpus.Sentence import Sentence
 from Dictionary.Word import Word
@@ -21,7 +20,7 @@ class Velhasil ():
 
     nGram = NGram ("data/ngram.txt")
 
-    def __init__(self, text):
+    def __init__(self, text=""):
         self.fsm = FsmMorphologicalAnalyzer ("data/turkish_dictionary.txt", "data/turkish_misspellings.txt",
                                              "data/turkish_finite_state_machine.xml")
         paragraflar = self.paragrafAyir (text)

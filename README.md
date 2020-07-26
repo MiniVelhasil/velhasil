@@ -44,4 +44,5 @@ atasozleri_.paragrafKarsilastir(text.split(" "))
 #Kullanılan Kütüphane ve Araçlar
 
 Yazım Denetimi için https://github.com/StarlangSoftware/TurkishSpellChecker-Py 
-Kök Bulma İşlemi İçin 
+
+Not Defteri Örneği : https://www.learnpyqt.com/examples/no2pads-simple-notepad-clone/
