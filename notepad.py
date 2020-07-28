@@ -292,7 +292,7 @@ class MainWindow(QMainWindow):
         if event.button () == Qt.RightButton:
             print ('right')  # FOR DEBUGGING
             #nokta = event.pos().x()
-            textCursor = self.editor.cursorForPosition (QPoint(event.pos().x(), event.pos().y()-55))
+            textCursor = self.editor.cursorForPosition (QPoint(event.pos().x(), event.pos().y()-70))
             #print(event.pos().x())
             textCursor.select (QTextCursor.WordUnderCursor)
             self.editor.setTextCursor (textCursor)

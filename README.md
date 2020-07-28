@@ -86,5 +86,7 @@ Yazım Denetimi için https://github.com/StarlangSoftware/TurkishSpellChecker-Py
 
 Not Defteri Örneği : https://www.learnpyqt.com/examples/no2pads-simple-notepad-clone/
 
+Iconlar https://icons8.com sitesinden alındı
+
 Masaüstü Uygulama ikonları https://icons8.com sitesinden alındı
 
