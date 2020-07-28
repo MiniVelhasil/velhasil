@@ -12,11 +12,17 @@
 3. Cümle Analizi : Metnin okunabilirliğinin ve akıcılığının artırılmasını sağlamak amacıyla metin içindeki cümleleri analiz eder ve uzun yazılmış birleşik cümlelerin bölünebilmesini önerir.
 4. Metin İstatistikleri : Metnin kelime sayısı, cümle sayısı, karakter sayısı gibi istatistiklerini bulur.
 5. Atasözü Öneri : Metnin tamamını inceler ve hazırladığımız 2500'e yakın atasözü içeren ver setimizi kullanark metinle alakalı atasözlerini bulur.
+
 ![](velhasilEkran.png)
+
+## Yükleme
+> git clone https://github.com/MiniVelhasil/velhasil.git
+
+> pip3 install -r requirements.txt
 
 ## Kullanım Örnekleri
 
-İstatistik Çıkarma
+### İstatistik Çıkarma
 
 ```sh
     velhasil_ = velhasil.Velhasil (text)
@@ -33,35 +39,37 @@
     print ("**************************")
 ```
 
-Cümle Analizi:
+### Cümle Analizi:
 
 ```sh
     # Cümlenin bölünüp bölünmeyeceğini önerisini "true" veya "false" olarak bildirir
     cumleConuc =[]
     for cumle in velhasil_.cumleler:
        cumleConuc.append(velhasil_.cumleBolucu(cumle))
-    print(len(cumleConuc))
     print(cumleConuc)
-    #print(velhasil_.cumleBolucu(velhasil_.cumleler[0]))
+
     #for count, i in enumerate(velhasil_.cumleler):
         #print (count,":",i)
-    print ("**************************")
+
+```
+
+### Yazım Denetimi
+```sh
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
-    # print(velhasil_.yazimKontrolu(velhasil_.cumleler[0]))
+    print(velhasil_.yazimKontrolu(velhasil_.cumleler[0]))
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
     print ("kelime önerileri " ,velhasil_.yazimDenetimi (text))
-    print ("**************************")
     print (velhasil_.turkcesiniOner ("etap"))
-    print ("**************************")
     # Metindeki ilk cümlenin ilk kelimesin ile ilgili yazım önerileri sunar
     print ("kelime önerileri " ,velhasil_.kelimeOneri ("yalnış"))
-    print ("**************************")
-    # Atasözü öneri sistemi
+
+```
+### Atasözü öneri sistemi
+```sh
     atasozleri_ = atasozlerOneri.AtasozleriOneri ()
     oneriler = atasozleri_.atasozuBul (text)
     oneriler.sort(reverse=True)
 ```
-
 
 ## Masaüstü Arayüzü
 
@@ -70,6 +78,7 @@ Velhasıl metin analizi sınıfımızı test etmek için PyQt ile bir arayüz ha
 ```sh
 python notepad.py
 ```
+
 
 ## Gereksinimler
 
