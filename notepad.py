@@ -9,7 +9,6 @@ import velhasil
 import os
 import sys
 
-
 class MainWindow(QMainWindow):
 
     def __init__(self, *args, **kwargs):
@@ -149,6 +148,8 @@ class MainWindow(QMainWindow):
         Velhasıl_toolbar.addAction (atasozu_action)
         Velhasıl_menu.addAction(atasozu_action)
 
+        self.velhasil_ = velhasil.Velhasil ()
+
         self.update_title()
         self.show()
 
@@ -230,15 +231,14 @@ class MainWindow(QMainWindow):
         self.listwidget.clear ()
         test = 0
 
-        textboxValue = self.editor.toPlainText ()
+        textboxValue = self.editor.toPlainText ().rstrip()
         #
         kelimeler= textboxValue.split(" ")
         self.editor.clear()
-        if test ==0:
-            velhasil_ = velhasil.Velhasil ()
-        else:
-            textboxValue = ''.join (xml.etree.ElementTree.fromstring (textboxValue).itertext ())
-        kontrol = velhasil_.yazimDenetimi(textboxValue)
+
+
+        oneriler =""
+        kontrol = self.velhasil_.yazimDenetimi(textboxValue.rstrip())
         print(kontrol)
         #print(kelimeler)
         newText =""
@@ -247,8 +247,15 @@ class MainWindow(QMainWindow):
                 newText += kelime+" "
             elif (kontrol[count]==1):
                 newText += '<span style="background-color: blue";color:white>'+str(kelime)+'</span>' + " "
+                #for i in velhasil_.kelimeOneri(kelime):
+                   #self.listwidget.addItem(kelime,i)
             elif (kontrol[count]==2):
+                oneriler =""
                 newText += '<span style="background-color: red";color:white>'+str(kelime)+'</span>' + " "
+                print(self.velhasil_.kelimeOneri(kelime))
+                for i in set(self.velhasil_.kelimeOneri (kelime)):
+                    oneriler= oneriler +" " +str(i)
+                self.listwidget.addItem (str(kelime)+" : "+ oneriler)
             elif (kontrol[count] == 3):
                 newText += '<span style="background-color: yellow";color:yellow>'+str(kelime)+'</span>' + " "
             elif (kontrol[count] == 4):
@@ -258,6 +265,7 @@ class MainWindow(QMainWindow):
             elif (kontrol[count] == 6):
                 newText += '<span style="background-color: brown";color:brown>'+str(kelime)+'</span>' + " "
         print(newText)
+
         self.editor.appendHtml(newText)
         test = 1
         #self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil_.kelimesayisi))
@@ -271,23 +279,60 @@ class MainWindow(QMainWindow):
         self.listwidget.clear ()
 
         textboxValue = self.editor.toPlainText ()
-        velhasil_ = velhasil.Velhasil (textboxValue)
-        self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil_.kelimesayisi))
-        self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil_.kelimesayisi))
-        self.listwidget.addItem ("benzersiz kelime sayisi :"+ str(velhasil_.benzersizkelimesayisi))
-        self.listwidget.addItem ("Karakter sayisi :"+ str(velhasil_.karaktersayisi))
-        self.listwidget.addItem ("Benzersiz karakter sayisi :"+ str(velhasil_.benzersizkaraktersayisi))
-        self.listwidget.addItem ("Paragraf sayisi :"+ str(velhasil_.paragrafSayisi))
-        self.listwidget.addItem ("Cümle sayisi :"+ str(velhasil_.cumleSayisi))
-        self.listwidget.addItem ("Kelimeler :"+ str( velhasil_.benzersizkelimeler))
+        velhasil__ = velhasil.Velhasil (textboxValue)
+        self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil__.kelimesayisi))
+        self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil__.kelimesayisi))
+        self.listwidget.addItem ("benzersiz kelime sayisi :"+ str(velhasil__.benzersizkelimesayisi))
+        self.listwidget.addItem ("Karakter sayisi :"+ str(velhasil__.karaktersayisi))
+        self.listwidget.addItem ("Benzersiz karakter sayisi :"+ str(velhasil__.benzersizkaraktersayisi))
+        self.listwidget.addItem ("Paragraf sayisi :"+ str(velhasil__.paragrafSayisi))
+        self.listwidget.addItem ("Cümle sayisi :"+ str(velhasil__.cumleSayisi))
+        self.listwidget.addItem ("Kelimeler :"+ str( velhasil__.benzersizkelimeler))
 
     def mousePressEvent(self, event):
 
         if event.button () == Qt.RightButton:
             print ('right')  # FOR DEBUGGING
+            #nokta = event.pos().x()
+            textCursor = self.editor.cursorForPosition (QPoint(event.pos().x(), event.pos().y()-55))
+            #print(event.pos().x())
+            textCursor.select (QTextCursor.WordUnderCursor)
+            self.editor.setTextCursor (textCursor)
+            self.word = textCursor.selectedText ()
+            print("word : ",self.word)
+
+        menu = QMenu ()
+
+        VelAction = menu.addAction ("Velhaasıl")
+        menu.addSeparator ()
+
+        if self.word != "" or len (self.word) > 1 or self.word != " ":
+            print ("burada")
+            print (self.velhasil_.isCorrect (self.word))
+            if not (self.velhasil_.isCorrect (self.word)):
+                for i, kelime in enumerate (set (self.velhasil_.kelimeOneri (self.word))):
+                    kelime = menu.addAction (kelime)
+        quitAction = menu.addAction ("Quit")
+        action = menu.exec_ (self.mapToGlobal (event.pos ()))
+        print(str(action.text()))
+        self.degistir(str(action.text()))
+        if action == quitAction:
+            qApp.quit ()
+
+        if event.button()==Qt.LeftButton:
+               pass# menu.destroy()
+
+    def degistir(self,kelime):
+        metin = self.editor.toPlainText()
+        cursor = self.editor.textCursor ()
 
 
-
+        print(metin[:cursor.selectionStart()])
+        print (metin[cursor.selectionEnd ():])
+        metin = metin[:cursor.selectionStart ()] + kelime + metin[ cursor.selectionEnd ():]
+        self.editor.clear ()
+        print(metin)
+        self.editor.appendHtml((metin))
 if __name__ == '__main__':
 
     app = QApplication(sys.argv)
