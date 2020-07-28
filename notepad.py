@@ -17,7 +17,6 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout()
         self.editor = QPlainTextEdit()  # Could also use a QTextEdit and set self.editor.setAcceptRichText(False)
 
-
         # Setup the QTextEdit editor configuration
         fixedfont = QFontDatabase.systemFont(QFontDatabase.FixedFont)
         fixedfont.setPointSize(12)
@@ -31,6 +30,7 @@ class MainWindow(QMainWindow):
         self.listwidget = QListWidget ()
         self.listwidget.setFont (fixedfont)
         layout.addWidget(self.listwidget)
+        self.listwidget.hide()
 
 
         container = QWidget()
@@ -41,45 +41,46 @@ class MainWindow(QMainWindow):
         self.setStatusBar(self.status)
 
         file_toolbar = QToolBar("File")
-        file_toolbar.setIconSize(QSize(14, 14))
+        file_toolbar.setIconSize(QSize(32, 32))
         self.addToolBar(file_toolbar)
         file_menu = self.menuBar().addMenu("&File")
 
-        open_file_action = QAction(QIcon(os.path.join('images', 'blue-folder-open-document.png')), "Open file...", self)
+        open_file_action = QAction(QIcon(os.path.join('images', 'icons8-opened-folder-50.png')), "Open file...", self)
         open_file_action.setStatusTip("Open file")
         open_file_action.triggered.connect(self.file_open)
         file_menu.addAction(open_file_action)
         file_toolbar.addAction(open_file_action)
 
-        save_file_action = QAction(QIcon(os.path.join('images', 'disk.png')), "Save", self)
+        save_file_action = QAction(QIcon(os.path.join('images', 'icons8-save-50.png')), "Save", self)
         save_file_action.setStatusTip("Save current page")
         save_file_action.triggered.connect(self.file_save)
         file_menu.addAction(save_file_action)
         file_toolbar.addAction(save_file_action)
 
-        saveas_file_action = QAction(QIcon(os.path.join('images', 'disk--pencil.png')), "Save As...", self)
+        saveas_file_action = QAction(QIcon(os.path.join('images', 'icons8-save-as-50.png')), "Save As...", self)
         saveas_file_action.setStatusTip("Save current page to specified file")
         saveas_file_action.triggered.connect(self.file_saveas)
         file_menu.addAction(saveas_file_action)
         file_toolbar.addAction(saveas_file_action)
 
-        print_action = QAction(QIcon(os.path.join('images', 'printer.png')), "Print...", self)
+        print_action = QAction(QIcon(os.path.join('images', 'icons8-print-50.png')), "Print...", self)
         print_action.setStatusTip("Print current page")
         print_action.triggered.connect(self.file_print)
         file_menu.addAction(print_action)
         file_toolbar.addAction(print_action)
 
         edit_toolbar = QToolBar("Edit")
-        edit_toolbar.setIconSize(QSize(16, 16))
+        edit_toolbar.setIconSize(QSize(32, 32))
         self.addToolBar(edit_toolbar)
         edit_menu = self.menuBar().addMenu("&Edit")
 
-        undo_action = QAction(QIcon(os.path.join('images', 'arrow-curve-180-left.png')), "Undo", self)
+        undo_action = QAction(QIcon(os.path.join('images', 'icons8-undo-50.png')), "Undo", self)
         undo_action.setStatusTip("Undo last change")
         undo_action.triggered.connect(self.editor.undo)
+        edit_toolbar.addAction (undo_action)
         edit_menu.addAction(undo_action)
 
-        redo_action = QAction(QIcon(os.path.join('images', 'arrow-curve.png')), "Redo", self)
+        redo_action = QAction(QIcon(os.path.join('images', 'icons8-redo-50.png')), "Redo", self)
         redo_action.setStatusTip("Redo last change")
         redo_action.triggered.connect(self.editor.redo)
         edit_toolbar.addAction(redo_action)
@@ -87,32 +88,32 @@ class MainWindow(QMainWindow):
 
         edit_menu.addSeparator()
 
-        cut_action = QAction(QIcon(os.path.join('images', 'scissors.png')), "Cut", self)
+        cut_action = QAction(QIcon(os.path.join('images', 'icons8-cut-50.png')), "Cut", self)
         cut_action.setStatusTip("Cut selected text")
         cut_action.triggered.connect(self.editor.cut)
         edit_toolbar.addAction(cut_action)
         edit_menu.addAction(cut_action)
 
-        copy_action = QAction(QIcon(os.path.join('images', 'document-copy.png')), "Copy", self)
+        copy_action = QAction(QIcon(os.path.join('images', 'icons8-copy-50.png')), "Copy", self)
         copy_action.setStatusTip("Copy selected text")
         copy_action.triggered.connect(self.editor.copy)
         edit_toolbar.addAction(copy_action)
         edit_menu.addAction(copy_action)
 
-        paste_action = QAction(QIcon(os.path.join('images', 'clipboard-paste-document-text.png')), "Paste", self)
+        paste_action = QAction(QIcon(os.path.join('images', 'icons8-paste-50.png')), "Paste", self)
         paste_action.setStatusTip("Paste from clipboard")
         paste_action.triggered.connect(self.editor.paste)
         edit_toolbar.addAction(paste_action)
         edit_menu.addAction(paste_action)
 
-        select_action = QAction(QIcon(os.path.join('images', 'selection-input.png')), "Select all", self)
+        select_action = QAction(QIcon(os.path.join('images', 'icons8-rename-50.png')), "Select all", self)
         select_action.setStatusTip("Select all text")
         select_action.triggered.connect(self.editor.selectAll)
         edit_menu.addAction(select_action)
 
         edit_menu.addSeparator()
 
-        wrap_action = QAction(QIcon(os.path.join('images', 'arrow-continue.png')), "Wrap text to window", self)
+        wrap_action = QAction(QIcon(os.path.join('images', 'icons8-text-width-50.png')), "Wrap text to window", self)
         wrap_action.setStatusTip("Toggle wrap text to window")
         wrap_action.setCheckable(True)
         wrap_action.setChecked(True)
@@ -120,29 +121,29 @@ class MainWindow(QMainWindow):
         edit_menu.addAction(wrap_action)
 
         Velhasıl_toolbar = QToolBar("Velhasıl")
-        Velhasıl_toolbar.setIconSize(QSize(14, 14))
+        Velhasıl_toolbar.setIconSize(QSize(32, 32))
         self.addToolBar(Velhasıl_toolbar)
         Velhasıl_menu = self.menuBar().addMenu("&Velhasıl")
 
-        yazimdenetimi_action = QAction(QIcon(os.path.join('images', 'document-copy.png')), "Yazım Denetimi", self)
+        yazimdenetimi_action = QAction(QIcon(os.path.join('images', 'icons8-spellcheck-50.png')), "Yazım Denetimi", self)
         yazimdenetimi_action.setStatusTip("Yazım Denetimi Yap")
         yazimdenetimi_action.triggered.connect(self.yazimDenetimi)
         Velhasıl_toolbar.addAction(yazimdenetimi_action)
         Velhasıl_menu.addAction(yazimdenetimi_action)
 
-        cumle_action = QAction(QIcon(os.path.join('images', 'clipboard-paste-document-text.png')), "Cümle Analizi", self)
+        cumle_action = QAction(QIcon(os.path.join('images', 'icons8-check-book-50.png')), "Cümle Analizi", self)
         cumle_action.setStatusTip("Cümle Ve Metin Analizi Yapar")
         cumle_action.triggered.connect(self.editor.paste)
         Velhasıl_toolbar.addAction(cumle_action)
         Velhasıl_menu.addAction(cumle_action)
 
-        istatistik_action = QAction(QIcon(os.path.join('images', 'clipboard-paste-document-text.png')), "Metin İstatistikleri", self)
+        istatistik_action = QAction(QIcon(os.path.join('images', 'icons8-futures-50.png')), "Metin İstatistikleri", self)
         istatistik_action.setStatusTip("Metin istatistiklerini")
         istatistik_action.triggered.connect(self.istatistikGoster)
         Velhasıl_toolbar.addAction(istatistik_action)
         Velhasıl_menu.addAction(istatistik_action)
 
-        atasozu_action = QAction(QIcon(os.path.join('images', 'selection-input.png')), "Atasözü Öner", self)
+        atasozu_action = QAction(QIcon(os.path.join('images', 'icons8-concept-50.png')), "Atasözü Öner", self)
         atasozu_action.setStatusTip("Metinle Alakalı Atasözleri Gösterir")
         atasozu_action.triggered.connect(self.atasozuOneri)
         Velhasıl_toolbar.addAction (atasozu_action)
@@ -164,7 +165,7 @@ class MainWindow(QMainWindow):
 
         if path:
             try:
-                with open(path, 'rU') as f:
+                with open(path, 'rU',encoding="UTF-8") as f:
                     text = f.read()
 
             except Exception as e:
@@ -217,6 +218,7 @@ class MainWindow(QMainWindow):
 
     def atasozuOneri(self):
         self.listwidget.clear ()
+        self.listwidget.show ()
         textboxValue = self.editor.toPlainText ()
 
         atasozleri_ = atasozlerOneri.AtasozleriOneri ()
@@ -250,12 +252,8 @@ class MainWindow(QMainWindow):
                 #for i in velhasil_.kelimeOneri(kelime):
                    #self.listwidget.addItem(kelime,i)
             elif (kontrol[count]==2):
-                oneriler =""
-                newText += '<span style="background-color: red";color:white>'+str(kelime)+'</span>' + " "
-                print(self.velhasil_.kelimeOneri(kelime))
-                for i in set(self.velhasil_.kelimeOneri (kelime)):
-                    oneriler= oneriler +" " +str(i)
-                self.listwidget.addItem (str(kelime)+" : "+ oneriler)
+                if not (self.velhasil_.isCorrect (str(kelime))):
+                    newText += '<span style="background-color: red";color:white>'+str(kelime)+'</span>' + " "
             elif (kontrol[count] == 3):
                 newText += '<span style="background-color: yellow";color:yellow>'+str(kelime)+'</span>' + " "
             elif (kontrol[count] == 4):
@@ -277,7 +275,7 @@ class MainWindow(QMainWindow):
 
     def istatistikGoster(self):
         self.listwidget.clear ()
-
+        self.listwidget.show ()
         textboxValue = self.editor.toPlainText ()
         velhasil__ = velhasil.Velhasil (textboxValue)
         self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil__.kelimesayisi))
