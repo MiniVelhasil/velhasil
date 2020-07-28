@@ -53,12 +53,3 @@ def main():
 if __name__ == '__main__':
     main ()
 
-"""metni gönderdik.
-1. adım paragrafları bul.
-2. Cümleleleri ayır
-3. kelimelere ayır
-4. kelimeleri yazım denetimi kontrol et
-5. paragrafın sonu nokta gibi işaretle bitmiyorsa uyar
-6. noktalama işaretlerinin önünde boşluk varsa uyarı ver
-7. bir kaç yüzyıl gibi sık kullanılan hatalı kalıplar için istisnalar yazılabilir
-8. Cümlenin tamamı ve ya ilk harfleri büyük harfse başlık olarak algılanmalı ve sonunda nokta olma hatası göz ardı edilmeli"""
