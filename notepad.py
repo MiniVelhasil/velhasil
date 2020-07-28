@@ -303,7 +303,7 @@ class MainWindow(QMainWindow):
 
         menu = QMenu ()
 
-        VelAction = menu.addAction ("Velhaasıl")
+        VelAction = menu.addAction ("Velhasıl")
         menu.addSeparator ()
 
         if self.word != "" or len (self.word) > 1 or self.word != " ":
@@ -315,7 +315,10 @@ class MainWindow(QMainWindow):
         quitAction = menu.addAction ("Quit")
         action = menu.exec_ (self.mapToGlobal (event.pos ()))
         print(str(action.text()))
-        self.degistir(str(action.text()))
+
+        if action != VelAction:
+            self.degistir(str(action.text()))
+        menu.addSeparator ()
         if action == quitAction:
             qApp.quit ()
 
@@ -326,13 +329,14 @@ class MainWindow(QMainWindow):
         metin = self.editor.toPlainText()
         cursor = self.editor.textCursor ()
 
-
+        print(type(metin))
         print(metin[:cursor.selectionStart()])
         print (metin[cursor.selectionEnd ():])
         metin = metin[:cursor.selectionStart ()] + kelime + metin[ cursor.selectionEnd ():]
         self.editor.clear ()
         print(metin)
         self.editor.appendHtml((metin))
+        self.yazimDenetimi()
 if __name__ == '__main__':
 
     app = QApplication(sys.argv)
