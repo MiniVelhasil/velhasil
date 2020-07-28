@@ -161,7 +161,7 @@ class MainWindow(QMainWindow):
         dlg.show()
 
     def file_open(self):
-        path, _ = QFileDialog.getOpenFileName(self, "Open file", "", "Text documents (*.txt);All files (*.*)")
+        path, _ = QFileDialog.getOpenFileName(self, "Dosya Aç", "", "Metin Dosyaları (*.txt);All files (*.*)")
 
         if path:
             try:
@@ -184,7 +184,7 @@ class MainWindow(QMainWindow):
         self._save_to_path(self.path)
 
     def file_saveas(self):
-        path, _ = QFileDialog.getSaveFileName(self, "Save file", "", "Text documents (*.txt);All files (*.*)")
+        path, _ = QFileDialog.getSaveFileName(self, "Dosya Kaydet", "", "Metin Dosyaları (*.txt);All files (*.*)")
 
         if not path:
             # If dialog is cancelled, will return ''
@@ -211,7 +211,7 @@ class MainWindow(QMainWindow):
             self.editor.print_(dlg.printer())
 
     def update_title(self):
-        self.setWindowTitle("%s - Velhasıl..." % (os.path.basename(self.path) if self.path else "Untitled"))
+        self.setWindowTitle("%s - Velhasıl..." % (os.path.basename(self.path) if self.path else "Başlıksız"))
 
     def edit_toggle_wrap(self):
         self.editor.setLineWrapMode( 1 if self.editor.lineWrapMode() == 0 else 0 )
