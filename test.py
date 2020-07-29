@@ -1,7 +1,7 @@
 import velhasil
 import atasozlerOneri
 
-with open ('data/haber.txt', 'r', encoding="utf8") as myfile:
+with open ('data/haber.txt', 'r', encoding="utf-8") as myfile:
     text = myfile.read ()
 
 
@@ -22,7 +22,8 @@ def main():
     # Cümlenin bölünüp bölünmeyeceğini önerisini "true" veya "false" olarak bildirir
     cumleConuc =[]
     for cumle in velhasil_.cumleler:
-       cumleConuc.append(velhasil_.cumleBolucu(cumle))
+        print(cumle)
+        cumleConuc.append(velhasil_.cumleBolucu(cumle))
     print(len(cumleConuc))
     print(cumleConuc)
     #print(velhasil_.cumleBolucu(velhasil_.cumleler[0]))

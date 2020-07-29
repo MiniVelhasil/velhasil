@@ -52,14 +52,15 @@ class Velhasil ():
 
     def cumleBulucu(self, paragraflar):
         sent2 = []
-        for paraf in paragraflar:
+        for sayac, paraf in enumerate(paragraflar):
             paraf = self.kisaltmaTemizle (paraf)
             sentence = re.compile (
                 """(?<=['""a-zıüöşğç\""\]\)][\!\?\:\.\…\n\r\n\t])\s+(?=[""A-ZİÜÖŞĞÇ0-9\(\-\(\''\‘\““\""\[\+])""")
 
             sent = re.split (sentence, paraf)
-
             sent2.extend (sent)
+            sent2.extend ("\n")
+
 
         a = 0
         for i in sent2:
@@ -101,7 +102,7 @@ class Velhasil ():
     # @zamanHesapla
     def cumleBolucu(self, text):
         kelimeler = text.split (" ")
-        if len(kelimeler)>20:
+        if len(kelimeler)>10:
             for baglac in listeler.baglaclar:
                 if baglac in kelimeler:
                     index = kelimeler.index (baglac)
@@ -136,8 +137,9 @@ class Velhasil ():
             sayi = len(paragraf.split (" "))
             for sayac, kelime in enumerate(paragraf.split (" ")):
                 if sayac == sayi-1:
-                    if kelime[-1]!=".":
-                        gelen =3
+                    if len(kelime)>0:
+                        if kelime[-1]!=".":
+                            gelen =3
 
                 elif sayac == 0:
                     gelen = self.yazimDenetimiIslem (kelime, "")

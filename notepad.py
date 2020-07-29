@@ -133,7 +133,7 @@ class MainWindow(QMainWindow):
 
         cumle_action = QAction(QIcon(os.path.join('images', 'icons8-check-book-50.png')), "Cümle Analizi", self)
         cumle_action.setStatusTip("Cümle Ve Metin Analizi Yapar")
-        cumle_action.triggered.connect(self.editor.paste)
+        cumle_action.triggered.connect(self.cumleAnalizi)
         Velhasıl_toolbar.addAction(cumle_action)
         Velhasıl_menu.addAction(cumle_action)
 
@@ -225,16 +225,19 @@ class MainWindow(QMainWindow):
         oneriler = atasozleri_.atasozuBul (textboxValue)
 
         oneriler.sort (reverse=True)
+        if len(oneriler)==0:
+            self.listwidget.addItem("Atasözü Önerisi Bulunamadı...")
         for i in oneriler:
             self.listwidget.addItem (i)
 
 
     def yazimDenetimi(self):
         self.listwidget.clear ()
-        test = 0
+        self.editor.setLineWrapMode(0)
 
         textboxValue = self.editor.toPlainText ().rstrip()
         #
+        textboxValue = textboxValue.replace("\n", " *** ")
         kelimeler= textboxValue.split(" ")
         self.editor.clear()
 
@@ -245,7 +248,10 @@ class MainWindow(QMainWindow):
         #print(kelimeler)
         newText =""
         for count, kelime in enumerate(kelimeler):
-            if (kontrol[count]==0):
+            print(kelime)
+            if kelime=="***":
+                newText += "<br>"
+            elif (kontrol[count]==0):
                 newText += kelime+" "
             elif (kontrol[count]==1):
                 newText += '<span style="background-color: blue";color:white>'+str(kelime)+'</span>' + " "
@@ -262,12 +268,13 @@ class MainWindow(QMainWindow):
                 newText += '<span style="background-color: #999966";color:white>'+str(kelime)+'</span>' + " "
             elif (kontrol[count] == 6):
                 newText += '<span style="background-color: brown";color:brown>'+str(kelime)+'</span>' + " "
+
         print(newText)
 
         self.editor.appendHtml(newText)
         test = 1
         #self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil_.kelimesayisi))
-
+        self.editor.setLineWrapMode (1)
 
 
     def cleanhtml(raw_html):
@@ -310,31 +317,59 @@ class MainWindow(QMainWindow):
             if not (self.velhasil_.isCorrect (self.word)):
                 for i, kelime in enumerate (set (self.velhasil_.kelimeOneri (self.word))):
                     kelime = menu.addAction (kelime)
-        quitAction = menu.addAction ("Quit")
+            elif len(self.velhasil_.turkcesiniOner(self.word))>0:
+                for kelime in self.velhasil_.turkcesiniOner(self.word):
+                    kelime = menu.addAction(kelime)
+        #quitAction = menu.addAction ("Quit")
         action = menu.exec_ (self.mapToGlobal (event.pos ()))
         print(str(action.text()))
 
         if action != VelAction:
             self.degistir(str(action.text()))
         menu.addSeparator ()
-        if action == quitAction:
-            qApp.quit ()
+        #if action == quitAction:
+            #qApp.quit ()
 
         if event.button()==Qt.LeftButton:
                pass# menu.destroy()
 
     def degistir(self,kelime):
-        metin = self.editor.toPlainText()
-        cursor = self.editor.textCursor ()
 
-        print(type(metin))
-        print(metin[:cursor.selectionStart()])
-        print (metin[cursor.selectionEnd ():])
-        metin = metin[:cursor.selectionStart ()] + kelime + metin[ cursor.selectionEnd ():]
-        self.editor.clear ()
+
+        metin = self.editor.toPlainText ().rstrip()
+        #
+
         print(metin)
+        cursor = self.editor.textCursor ()
+        metin = metin[:cursor.selectionStart ()] +" "+ kelime+" " + metin[ cursor.selectionEnd ():]
+        self.editor.clear ()
+        metin = metin.replace ("\n", " <br> ")
+        print(metin)
+
         self.editor.appendHtml((metin))
         self.yazimDenetimi()
+
+    def cumleAnalizi(self):
+        metin = self.editor.toPlainText()
+        self.editor.clear()
+        velhasil__ = velhasil.Velhasil (metin)
+        newText =""
+        cumleler=[]
+        for cumle in velhasil__.cumleler:
+            print(cumle)
+            #print(len(cumle.split(" ")))
+            test = (velhasil__.cumleBolucu(cumle))
+            if (test==1):
+                print(cumle)
+                newText += '<span style="background-color: yellow">' + str (cumle) + '</span>' + " "
+            elif cumle =="\n" or cumle =="":
+                newText += "<br>"
+            else:
+                newText += str(cumle)+ " "
+
+        self.editor.appendHtml(newText)
+
+
 if __name__ == '__main__':
 
     app = QApplication(sys.argv)
