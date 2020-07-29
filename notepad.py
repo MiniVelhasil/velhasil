@@ -161,11 +161,11 @@ class MainWindow(QMainWindow):
         dlg.show()
 
     def file_open(self):
-        path, _ = QFileDialog.getOpenFileName(self, "Dosya Aç", "", "Metin Dosyaları (*.txt);All files (*.*)")
+        path, _ = QFileDialog.getOpenFileName(self, "Dosya Aç", "", "Metin Dosyaları (*.txt)")
 
         if path:
             try:
-                with open(path, 'rU',encoding="UTF-8") as f:
+                with open(path, 'r',encoding="UTF-8") as f:
                     text = f.read()
 
             except Exception as e:
@@ -184,7 +184,7 @@ class MainWindow(QMainWindow):
         self._save_to_path(self.path)
 
     def file_saveas(self):
-        path, _ = QFileDialog.getSaveFileName(self, "Dosya Kaydet", "", "Metin Dosyaları (*.txt);All files (*.*)")
+        path, _ = QFileDialog.getSaveFileName(self, "Dosya Kaydet", "", "Metin Dosyaları (*.txt)")
 
         if not path:
             # If dialog is cancelled, will return ''
@@ -195,7 +195,7 @@ class MainWindow(QMainWindow):
     def _save_to_path(self, path):
         text = self.editor.toPlainText()
         try:
-            with open(path, 'w') as f:
+            with open(path, 'w',encoding="UTF-8") as f:
                 f.write(text)
 
         except Exception as e:
@@ -352,9 +352,13 @@ class MainWindow(QMainWindow):
     def cumleAnalizi(self):
         metin = self.editor.toPlainText()
         self.editor.clear()
+        self.listwidget.clear ()
+        self.listwidget.show()
+
         velhasil__ = velhasil.Velhasil (metin)
         newText =""
         cumleler=[]
+        sayi=0
         for cumle in velhasil__.cumleler:
             print(cumle)
             #print(len(cumle.split(" ")))
@@ -362,13 +366,18 @@ class MainWindow(QMainWindow):
             if (test==1):
                 print(cumle)
                 newText += '<span style="background-color: yellow">' + str (cumle) + '</span>' + " "
+                sayi+=1
             elif cumle =="\n" or cumle =="":
                 newText += "<br>"
             else:
                 newText += str(cumle)+ " "
 
         self.editor.appendHtml(newText)
-
+        self.listwidget.addItem("Metnin Okunabilirliğini Artırmak için Önerilerimiz: ")
+        self.listwidget.addItem("Metin İçinde "+ str(velhasil__.cumleSayisi)+ " cümle bulundu.")
+        self.listwidget.addItem ("Metin İçinde "+str(sayi)+ " bölünmeye müsait cümle bulundu.")
+        self.listwidget.addItem("Metnin daha okunabilir olması için işaretlenen birleşik cümleleri bölebilirsiniz.")
+        self.listwidget.addItem("Metin "+str(velhasil__.paragrafSayisi)+" paragraftan oluşuyor. ")
 
 if __name__ == '__main__':
 
