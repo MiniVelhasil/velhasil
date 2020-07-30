@@ -149,6 +149,11 @@ class MainWindow(QMainWindow):
         Velhasıl_toolbar.addAction (atasozu_action)
         Velhasıl_menu.addAction(atasozu_action)
 
+        bilgi_action = QAction(QIcon(os.path.join('images', 'icons8-info-50.png')), "Bilgi Penceresini Aç/Kapat", self)
+        bilgi_action.setStatusTip("Bilgi Penceresini Açar veya Kapatır")
+        bilgi_action.triggered.connect(self.bilgiAcKapa)
+        Velhasıl_toolbar.addAction (bilgi_action)
+        Velhasıl_menu.addAction(bilgi_action)
         self.velhasil_ = velhasil.Velhasil ()
 
         self.update_title()
@@ -216,6 +221,14 @@ class MainWindow(QMainWindow):
     def edit_toggle_wrap(self):
         self.editor.setLineWrapMode( 1 if self.editor.lineWrapMode() == 0 else 0 )
 
+    def bilgiAcKapa(self):
+        #self.editor.setLineWrapMode (1 if self.editor.lineWrapMode () == 0 else 0)
+        if self.listwidget.isVisible()==1:
+            self.listwidget.hide()
+        else:
+            self.listwidget.show()
+        #self.listwidget.setHidden( 1 if self.editor.setHidden() == 0 else 0 )
+
     def atasozuOneri(self):
         self.listwidget.clear ()
         self.listwidget.show ()
@@ -246,6 +259,14 @@ class MainWindow(QMainWindow):
         kontrol = self.velhasil_.yazimDenetimi(textboxValue.rstrip())
         print(kontrol)
         #print(kelimeler)
+        '''          
+        0-> kelime doğru ;
+        1-> Kelime bir noktalama işareti Önündeki boşluk silinmeli
+        2-> kelime yanlış
+        3-> cümleden sonra (enter ile bitmiş) nokta koyulmalı
+        4-> Noktalama işaretinden sonra boşluk bırakılmalı (merhana,dünya) uyarı verecek (3,14) -doğru döndürecek
+        5-> noktadan sonra büyük harf gelmeli
+        6-> Kelime doğru ancak Türkçe kelime önerisi var'''
         newText =""
         for count, kelime in enumerate(kelimeler):
             print(kelime)
@@ -254,26 +275,48 @@ class MainWindow(QMainWindow):
             elif (kontrol[count]==0):
                 newText += kelime+" "
             elif (kontrol[count]==1):
-                newText += '<span style="background-color: blue";color:white>'+str(kelime)+'</span>' + " "
-                #for i in velhasil_.kelimeOneri(kelime):
-                   #self.listwidget.addItem(kelime,i)
+                newText += '<span style="background-color: #80DEEA";color:white>'+str(kelime)+'</span>' + " "
             elif (kontrol[count]==2):
                 if not (self.velhasil_.isCorrect (str(kelime))):
-                    newText += '<span style="background-color: red";color:white>'+str(kelime)+'</span>' + " "
+                    newText += '<span style="background-color: 	#E57373";color:white>'+str(kelime)+'</span>' + " "
             elif (kontrol[count] == 3):
-                newText += '<span style="background-color: yellow";color:yellow>'+str(kelime)+'</span>' + " "
+                newText += '<span style="background-color: 	#BA68C8";color:yellow>'+str(kelime)+'</span>' + " "
             elif (kontrol[count] == 4):
-                newText += '<span style="background-color: green";color:green>'+str(kelime)+'</span>' + " "
+                newText += '<span style="background-color: #F57F17";color:green>'+str(kelime)+'</span>' + " "
             elif (kontrol[count] == 5):
-                newText += '<span style="background-color: #999966";color:white>'+str(kelime)+'</span>' + " "
+                newText += '<span style="background-color: #0277BD";color:white>'+str(kelime)+'</span>' + " "
             elif (kontrol[count] == 6):
-                newText += '<span style="background-color: brown";color:brown>'+str(kelime)+'</span>' + " "
+                newText += '<span style="background-color: #66BB6A";color:brown>'+str(kelime)+'</span>' + " "
 
         print(newText)
 
         self.editor.appendHtml(newText)
         test = 1
         #self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil_.kelimesayisi))
+        self.listwidget.clear()
+        self.listwidget.show()
+        #HATA KODLARI BİLGİ PENCERESİ
+        colors = ['#E57373', '#80DEEA', '#BA68C8', '#F57F17', '#66BB6A','#0277BD']
+        yanlis = QListWidgetItem('1 - Kelime Yanlıştır ')
+        yanlis.setBackground( QColor(colors[0]) )
+        self.listwidget.addItem(yanlis)
+
+        yanlis = QListWidgetItem('2 - Kelime bir noktalama işareti Önündeki boşluk silinmeli ')
+        yanlis.setBackground( QColor(colors[1]) )
+        self.listwidget.addItem(yanlis)
+        yanlis = QListWidgetItem('3 - Cümleden sonra nokta koyulmalı')
+        yanlis.setBackground( QColor(colors[2]) )
+        self.listwidget.addItem(yanlis)
+        yanlis = QListWidgetItem('4 - Noktalama işaretinden sonra boşluk bırakılmalı ')
+        yanlis.setBackground( QColor(colors[3]) )
+        self.listwidget.addItem(yanlis)
+        yanlis = QListWidgetItem('5 - Kelime doğru ancak Türkçe kelime önerisi var ')
+        yanlis.setBackground( QColor(colors[4]) )
+        self.listwidget.addItem(yanlis)
+        yanlis = QListWidgetItem('6 - Noktadan sonra büyük harf gelmeli ')
+        yanlis.setBackground( QColor(colors[5]) )
+        self.listwidget.addItem(yanlis)
+
         self.editor.setLineWrapMode (1)
 
 
@@ -285,7 +328,6 @@ class MainWindow(QMainWindow):
         self.listwidget.show ()
         textboxValue = self.editor.toPlainText ()
         velhasil__ = velhasil.Velhasil (textboxValue)
-        self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil__.kelimesayisi))
         self.listwidget.addItem ("Kelime sayisi :"+ str(velhasil__.kelimesayisi))
         self.listwidget.addItem ("benzersiz kelime sayisi :"+ str(velhasil__.benzersizkelimesayisi))
         self.listwidget.addItem ("Karakter sayisi :"+ str(velhasil__.karaktersayisi))
@@ -313,8 +355,12 @@ class MainWindow(QMainWindow):
 
         if self.word != "" or len (self.word) > 1 or self.word != " ":
             print ("burada")
+
             print (self.velhasil_.isCorrect (self.word))
-            if not (self.velhasil_.isCorrect (self.word)):
+            noktalamaİsaretleri = [".", ",", "?", "!", "...", ":", "(", ")"]
+            if self.word in noktalamaİsaretleri:
+                kelime = menu.addAction ("Noktalama İşaretinden Önceki Boşluk Kaldırılmalıdır.")
+            elif not (self.velhasil_.isCorrect (self.word)):
                 for i, kelime in enumerate (set (self.velhasil_.kelimeOneri (self.word))):
                     kelime = menu.addAction (kelime)
             elif len(self.velhasil_.turkcesiniOner(self.word))>0:
@@ -341,7 +387,11 @@ class MainWindow(QMainWindow):
 
         print(metin)
         cursor = self.editor.textCursor ()
-        metin = metin[:cursor.selectionStart ()] +" "+ kelime+" " + metin[ cursor.selectionEnd ():]
+        if (kelime =="Noktalama İşaretinden Önceki Boşluk Kaldırılmalıdır."):
+            metin = metin[:cursor.selectionStart ()]  + self.word + " " + metin[cursor.selectionEnd ():]
+        else:
+
+            metin = metin[:cursor.selectionStart ()] +" "+ kelime+" " + metin[ cursor.selectionEnd ():]
         self.editor.clear ()
         metin = metin.replace ("\n", " <br> ")
         print(metin)
@@ -378,6 +428,10 @@ class MainWindow(QMainWindow):
         self.listwidget.addItem ("Metin İçinde "+str(sayi)+ " bölünmeye müsait cümle bulundu.")
         self.listwidget.addItem("Metnin daha okunabilir olması için işaretlenen birleşik cümleleri bölebilirsiniz.")
         self.listwidget.addItem("Metin "+str(velhasil__.paragrafSayisi)+" paragraftan oluşuyor. ")
+        self.listwidget.addItem ("Metindeki cümleler....... ")
+        for i in velhasil__.cumleler:
+            if i!="\n":
+                self.listwidget.addItem("- "+ str(i))
 
 if __name__ == '__main__':
 
