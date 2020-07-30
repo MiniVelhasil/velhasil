@@ -3,6 +3,7 @@
 ## Velhası Projemizin Amacı
 > Projemizin amacı; yazılı metinlerin Türkçe dil bilgisi kuralarına uygun olmasını sağlama ve metinlerin akıcılığını ve okunabilirliğini artırıcı öneriler sunmaktır. 
 
+Uygulamamızın Çalışma Videosu : https://youtu.be/Oh7F1cy94lw
 
 ## Projemizin Özellikleri
 
