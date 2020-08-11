@@ -4,6 +4,7 @@
 > Projemizin amacı; yazılı metinlerin Türkçe dil bilgisi kuralarına uygun olmasını sağlama ve metinlerin akıcılığını ve okunabilirliğini artırıcı öneriler sunmaktır. 
 
 Uygulamamızın Çalışma Videosu : https://youtu.be/Oh7F1cy94lw
+
 Proje Sunumumuz :  https://drive.google.com/file/d/1hpJ1zsIv0YDgEqhGRJDLZme18A1jAV0J/view?usp=sharing
 
 ## Projemizin Özellikleri
