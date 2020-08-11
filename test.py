@@ -35,7 +35,7 @@ def main():
     # Metindeki ilk cümleyi yazım kontrolünden geçirip en doğru halini döndürür
     print ("kelime önerileri " ,velhasil_.yazimDenetimi (text))
     print ("**************************")
-    print (velhasil_.turkcesiniOner ("etap"))
+    print (velhasil_.turkcesiniOner ("dekoder"))
     print ("**************************")
     # Metindeki ilk cümlenin ilk kelimesin ile ilgili yazım önerileri sunar
     print ("kelime önerileri " ,velhasil_.kelimeOneri ("yalnış"))

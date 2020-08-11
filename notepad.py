@@ -337,47 +337,49 @@ class MainWindow(QMainWindow):
         self.listwidget.addItem ("Kelimeler :"+ str( velhasil__.benzersizkelimeler))
 
     def mousePressEvent(self, event):
+        try:
+            if event.button () == Qt.RightButton:
+                print ('right')  # FOR DEBUGGING
+                #nokta = event.pos().x()
+                textCursor = self.editor.cursorForPosition (QPoint(event.pos().x(), event.pos().y()-70))
+                #print(event.pos().x())
+                textCursor.select (QTextCursor.WordUnderCursor)
+                self.editor.setTextCursor (textCursor)
+                self.word = textCursor.selectedText ()
+                print("word : ",self.word)
 
-        if event.button () == Qt.RightButton:
-            print ('right')  # FOR DEBUGGING
-            #nokta = event.pos().x()
-            textCursor = self.editor.cursorForPosition (QPoint(event.pos().x(), event.pos().y()-70))
-            #print(event.pos().x())
-            textCursor.select (QTextCursor.WordUnderCursor)
-            self.editor.setTextCursor (textCursor)
-            self.word = textCursor.selectedText ()
-            print("word : ",self.word)
+            menu = QMenu ()
 
-        menu = QMenu ()
+            VelAction = menu.addAction ("Velhasıl")
+            menu.addSeparator ()
 
-        VelAction = menu.addAction ("Velhasıl")
-        menu.addSeparator ()
+            if self.word != "" or len (self.word) > 1 or self.word != " ":
+                print ("burada")
 
-        if self.word != "" or len (self.word) > 1 or self.word != " ":
-            print ("burada")
+                print (self.velhasil_.isCorrect (self.word))
+                noktalamaİsaretleri = [".", ",", "?", "!", "...", ":", "(", ")"]
+                if self.word in noktalamaİsaretleri:
+                    kelime = menu.addAction ("Noktalama İşaretinden Önceki Boşluk Kaldırılmalıdır.")
+                elif not (self.velhasil_.isCorrect (self.word)):
+                    for i, kelime in enumerate (set (self.velhasil_.kelimeOneri (self.word))):
+                        kelime = menu.addAction (kelime)
+                elif len(self.velhasil_.turkcesiniOner(self.word))>0:
+                    for kelime in self.velhasil_.turkcesiniOner(self.word):
+                        kelime = menu.addAction(kelime)
+            #quitAction = menu.addAction ("Quit")
+            action = menu.exec_ (self.mapToGlobal (event.pos ()))
+            print(str(action.text()))
 
-            print (self.velhasil_.isCorrect (self.word))
-            noktalamaİsaretleri = [".", ",", "?", "!", "...", ":", "(", ")"]
-            if self.word in noktalamaİsaretleri:
-                kelime = menu.addAction ("Noktalama İşaretinden Önceki Boşluk Kaldırılmalıdır.")
-            elif not (self.velhasil_.isCorrect (self.word)):
-                for i, kelime in enumerate (set (self.velhasil_.kelimeOneri (self.word))):
-                    kelime = menu.addAction (kelime)
-            elif len(self.velhasil_.turkcesiniOner(self.word))>0:
-                for kelime in self.velhasil_.turkcesiniOner(self.word):
-                    kelime = menu.addAction(kelime)
-        #quitAction = menu.addAction ("Quit")
-        action = menu.exec_ (self.mapToGlobal (event.pos ()))
-        print(str(action.text()))
+            if action != VelAction:
+                self.degistir(str(action.text()))
+            menu.addSeparator ()
+            #if action == quitAction:
+                #qApp.quit ()
 
-        if action != VelAction:
-            self.degistir(str(action.text()))
-        menu.addSeparator ()
-        #if action == quitAction:
-            #qApp.quit ()
-
-        if event.button()==Qt.LeftButton:
-               pass# menu.destroy()
+            if event.button()==Qt.LeftButton:
+                pass# menu.destroy()
+        except:
+            pass
 
     def degistir(self,kelime):
 
